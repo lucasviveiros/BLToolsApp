@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Principal</string>
+
+    <string name="label_calculadora">Calculadora</string>
+    <string name="label_conversores">Conversores</string>
+    <string name="label_simuladores">Simuladores</string>
+    <string name="label_consulta">Consulta</string>
+    <string name="label_leitores">Leitores</string>
+    <string name="label_ferramentas">Ferramentas</string>
+
+    <string name="label_imc">IMC</string>
+    <string name="label_churrasco">Churrasco</string>
+    <string name="label_gasolinaXetanol">GASOLINA X ETANOL</string>
+    <string name="label_consumo">Consumo combustível</string>
+
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+</resources>

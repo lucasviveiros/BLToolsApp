@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!--TEMA DA TELA IMC-->
+    <color name="colorPrimaryImc">#673ab7</color>
+    <color name="colorPrimaryDarkImc">#512da8</color>
+
+    <!--TEMA DA TELA CHURRASCO-->
+    <color name="colorPrimaryChurrasco">#009688</color>
+    <color name="colorPrimaryDarkChurrasco">#00796b</color>
+
+    <!--TEMA DA TELA GASOLINA-->
+    <color name="colorPrimaryGasolina">#4caf50</color>
+    <color name="colorPrimaryDarkGasolina">#388e3c</color>
+
+    <!--TEMA DA TELA CONSUMO-->
+    <color name="colorPrimaryConsumo">#ff9800</color>
+    <color name="colorPrimaryDarkConsumo">#f57c00</color>
+</resources>

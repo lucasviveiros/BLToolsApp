@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.com.bltoolsapplication">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".InicialActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".CalculadoraActivity"
+            android:label="@string/label_calculadora" />
+        <activity
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeImc"
+            android:label="@string/label_imc"
+            android:name=".calculadora.ImcActivity" />
+        <activity
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeChurrasco"
+            android:label="@string/label_churrasco"
+            android:name=".calculadora.ChurrascoActivity" />
+        <activity
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeGasolina"
+            android:label="@string/label_gasolinaXetanol"
+            android:name=".calculadora.GasolinaActivity" />
+        <activity
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeConsumo"
+            android:label="@string/label_consumo"
+            android:name=".calculadora.ConsumoActivity"></activity>
+    </application>
+
+</manifest>
