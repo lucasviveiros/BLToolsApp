@@ -2,11 +2,13 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+   <!-- <color name="colorAccent">#FF4081</color>-->
 
     <!--TEMA DA TELA IMC-->
     <color name="colorPrimaryImc">#673ab7</color>
     <color name="colorPrimaryDarkImc">#512da8</color>
+    <color name="colorAccentImc">#7C4DFF</color>
+
 
     <!--TEMA DA TELA CHURRASCO-->
     <color name="colorPrimaryChurrasco">#009688</color>

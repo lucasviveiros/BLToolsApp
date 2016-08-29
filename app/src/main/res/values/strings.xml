@@ -13,5 +13,12 @@
     <string name="label_gasolinaXetanol">GASOLINA X ETANOL</string>
     <string name="label_consumo">Consumo combustível</string>
 
+    <string name="masculino">Masculino</string>
+    <string name="feminino">Feminino</string>
+    <string name="idade">Idade</string>
+    <string name="pesoKg">Peso (Kg)</string>
+    <string name="alturaMetros">Altura (m)</string>
+    <string name="alturaCentimetros">Altura (cm)</string>
+
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
 </resources>
