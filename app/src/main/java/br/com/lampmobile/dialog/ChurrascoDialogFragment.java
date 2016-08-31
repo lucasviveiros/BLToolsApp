@@ -1,4 +1,4 @@
-package br.com.bltoolsapplication.dialog;
+package br.com.lampmobile.dialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -9,8 +9,8 @@ import android.support.v4.app.DialogFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.bltoolsapplication.R;
-import br.com.bltoolsapplication.helper.ChurrascoHelper;
+import br.com.lampmobile.R;
+import br.com.lampmobile.helper.ChurrascoHelper;
 
 public class ChurrascoDialogFragment extends DialogFragment {
 

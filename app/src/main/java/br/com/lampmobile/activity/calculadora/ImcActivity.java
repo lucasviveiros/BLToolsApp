@@ -1,4 +1,4 @@
-package br.com.bltoolsapplication.calculadora;
+package br.com.lampmobile.activity.calculadora;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-import br.com.bltoolsapplication.R;
+import br.com.lampmobile.R;
 
 public class ImcActivity extends AppCompatActivity {
 

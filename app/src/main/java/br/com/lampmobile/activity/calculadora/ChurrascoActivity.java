@@ -1,4 +1,4 @@
-package br.com.bltoolsapplication.calculadora;
+package br.com.lampmobile.activity.calculadora;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.DialogFragment;
@@ -9,9 +9,9 @@ import android.view.View;
 import java.util.List;
 import java.util.Map;
 
-import br.com.bltoolsapplication.R;
-import br.com.bltoolsapplication.dialog.ChurrascoDialogFragment;
-import br.com.bltoolsapplication.helper.ChurrascoHelper;
+import br.com.lampmobile.R;
+import br.com.lampmobile.dialog.ChurrascoDialogFragment;
+import br.com.lampmobile.helper.ChurrascoHelper;
 
 public class ChurrascoActivity extends AppCompatActivity {
 

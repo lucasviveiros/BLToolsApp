@@ -1,14 +1,15 @@
-package br.com.bltoolsapplication;
+package br.com.lampmobile.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import br.com.bltoolsapplication.calculadora.ChurrascoActivity;
-import br.com.bltoolsapplication.calculadora.ConsumoActivity;
-import br.com.bltoolsapplication.calculadora.GasolinaActivity;
-import br.com.bltoolsapplication.calculadora.ImcActivity;
+import br.com.lampmobile.R;
+import br.com.lampmobile.activity.calculadora.ChurrascoActivity;
+import br.com.lampmobile.activity.calculadora.ConsumoActivity;
+import br.com.lampmobile.activity.calculadora.GasolinaActivity;
+import br.com.lampmobile.activity.calculadora.ImcActivity;
 
 public class CalculadoraActivity extends AppCompatActivity {
 

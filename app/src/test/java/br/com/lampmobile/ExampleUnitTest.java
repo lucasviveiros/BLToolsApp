@@ -1,4 +1,4 @@
-package br.com.bltoolsapplication;
+package br.com.lampmobile;
 
 import org.junit.Test;
 

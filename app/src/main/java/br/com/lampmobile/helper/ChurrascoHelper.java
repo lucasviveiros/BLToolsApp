@@ -1,4 +1,4 @@
-package br.com.bltoolsapplication.helper;
+package br.com.lampmobile.helper;
 
 import android.content.Context;
 import android.database.Cursor;
