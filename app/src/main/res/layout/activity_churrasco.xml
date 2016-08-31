@@ -9,4 +9,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="br.com.bltoolsapplication.calculadora.ChurrascoActivity">
 
+
+    <!--<android.support.v7.widget.AppCompatImageButton-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@android:drawable/ic_menu_edit"-->
+        <!--android:onClick="dialogConfiguracao"/>-->
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Config"
+        android:onClick="dialogConfiguracao"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"/>
+
+
+
+
 </RelativeLayout>
