@@ -1,6 +1,8 @@
 package br.com.lampmobile.helper;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -38,6 +40,9 @@ public class ChurrascoHelper extends SQLiteOpenHelper {
 
     /**
      * Recupera todos os itens do churrasco.
+     *
+     * @param db - SQLiteDatabase
+     * @return Map<Tipo, List<Churrasco>>
      */
     public Map<Tipo, List<Churrasco>> getItens(SQLiteDatabase db) {
         String query = "SELECT * FROM " + TABLE_NAME;
@@ -46,11 +51,31 @@ public class ChurrascoHelper extends SQLiteOpenHelper {
 
     /**
      * Recupera apenas os itens ativos.
+     *
+     * @param db - SQLiteDatabase
+     * @return Map<Tipo, List<Churrasco>>
      */
     public Map<Tipo, List<Churrasco>> getItensAtivos(SQLiteDatabase db) {
         String query = "SELECT * FROM " + TABLE_NAME + " WHERE ativo = ?";
         String[] args = {"1"};
         return executaQuery(db, query, args);
+    }
+
+    /**
+     * Atualiza dados no da lista no banco de dados.
+     *
+     * @param db - SQLiteDatabase
+     * @param churrascos - List<Churrasco>
+     */
+    public void atualizarStatus(SQLiteDatabase db, List<Churrasco> churrascos) {
+        ContentValues contentValues;
+
+        for (Churrasco churrasco : churrascos) {
+            contentValues = new ContentValues();
+            contentValues.put("ativo", churrasco.getAtivo()? new Integer(1) : new Integer(0));
+
+            db.update(TABLE_NAME, contentValues, "id = ?", new String[]{churrasco.getId().toString()});
+        }
     }
 
     private Map<Tipo, List<Churrasco>> executaQuery(SQLiteDatabase db, String query, String[] args) {

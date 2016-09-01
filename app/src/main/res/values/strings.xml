@@ -21,6 +21,13 @@
     <string name="alturaCentimetros">Altura (cm)</string>
 
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+
     <string name="cancelar">Cancelar</string>
     <string name="salvar">Salvar</string>
+    <string name="selecione_itens">Selecione os itens do churrasco</string>
+    <string name="qntHomens">Quantidade de homens</string>
+    <string name="qntMulheres">Quantidade de mulheres</string>
+    <string name="qntCriancas">Quantidade de crianças</string>
+
+
 </resources>

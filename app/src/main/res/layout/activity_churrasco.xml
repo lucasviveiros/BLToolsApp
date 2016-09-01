@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,22 +10,97 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".activity.calculadora.ChurrascoActivity">
 
-
-    <!--<android.support.v7.widget.AppCompatImageButton-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:src="@android:drawable/ic_menu_edit"-->
-        <!--android:onClick="dialogConfiguracao"/>-->
-
-    <Button
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Config"
-        android:onClick="dialogConfiguracao"
-        android:textStyle="bold"
-        android:layout_marginBottom="10dp"/>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/churrascoHomens"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/qntHomens"
+                android:inputType="number"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/churrascoMulheres"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/qntMulheres"
+                android:inputType="number"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/churrascoCriancas"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/qntCriancas"
+                android:inputType="number"
+                android:textAlignment="center" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="calcular"
+                android:text="Calcular" />
 
 
+            <TextView
+                android:id="@+id/churrascoResultado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="8dp"
+                android:textColor="@color/colorPrimaryDarkChurrasco"
+                android:textSize="20dp"/>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:textStyle="bold">
 
+                <TextView
+                    android:id="@+id/churrascoResultadoItem"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="8dp"
+                    android:textColor="@color/colorPrimaryDarkChurrasco"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/churrascoResultadoValor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/colorPrimaryDarkChurrasco"
+                    android:textSize="18dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:foregroundGravity="bottom"
+        android:gravity="bottom">
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/churrascoAdView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id"></com.google.android.gms.ads.AdView>
+    </LinearLayout>
 </RelativeLayout>

@@ -3,17 +3,20 @@ package br.com.lampmobile.dialog;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import br.com.lampmobile.R;
 import br.com.lampmobile.helper.ChurrascoHelper;
 
 public class ChurrascoDialogFragment extends DialogFragment {
 
+    List<ChurrascoHelper.Churrasco> churrascos;
     List mSelectedItems;
     CharSequence[] itens;
     boolean[] itensChecados;
@@ -23,6 +26,7 @@ public class ChurrascoDialogFragment extends DialogFragment {
      * @param churrascos
      */
     public void criarArrays(List<ChurrascoHelper.Churrasco> churrascos) {
+        this.churrascos = churrascos;
         churrascoToArray(churrascos);
     }
 
@@ -31,7 +35,7 @@ public class ChurrascoDialogFragment extends DialogFragment {
         mSelectedItems = new ArrayList();  // Where we track the selected items
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         // Set the dialog title
-        builder.setTitle("Opções") //TODO add no R.id.
+        builder.setTitle(R.string.selecione_itens)
                 // Specify the list array, the items to be selected by default (null for none),
                 // and the listener through which to receive callbacks when items are selected
                 .setMultiChoiceItems(itens, itensChecados,
@@ -52,16 +56,22 @@ public class ChurrascoDialogFragment extends DialogFragment {
                 .setPositiveButton(R.string.salvar, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                        // User clicked OK, so save the mSelectedItems results somewhere
-                        // or return them to the component that opened the dialog
-                        //TODO SALVAR NO BANCO
+                        int i = 0;
+                        for (ChurrascoHelper.Churrasco churrasco : churrascos) {
+                            churrasco.setAtivo(itensChecados[i]);
+                            i++;
+                        }
+
+                        ChurrascoHelper helper = new ChurrascoHelper(getActivity());
+                        SQLiteDatabase db = helper.getReadableDatabase();
+                        helper.atualizarStatus(db, churrascos);
+
+
                     }
                 })
                 .setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int id) {
-                        //Não faz nada
-                    }
+                    public void onClick(DialogInterface dialog, int id) { }
                 });
 
         return builder.create();
