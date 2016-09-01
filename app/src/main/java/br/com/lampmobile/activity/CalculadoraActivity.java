@@ -8,7 +8,7 @@ import android.view.View;
 import br.com.lampmobile.R;
 import br.com.lampmobile.activity.calculadora.ChurrascoActivity;
 import br.com.lampmobile.activity.calculadora.ConsumoActivity;
-import br.com.lampmobile.activity.calculadora.GasolinaActivity;
+import br.com.lampmobile.activity.calculadora.CombustivelActivity;
 import br.com.lampmobile.activity.calculadora.ImcActivity;
 
 public class CalculadoraActivity extends AppCompatActivity {
@@ -30,7 +30,7 @@ public class CalculadoraActivity extends AppCompatActivity {
     }
 
     public void navGasolina(View view) {
-        Intent intent = new Intent(this, GasolinaActivity.class);
+        Intent intent = new Intent(this, CombustivelActivity.class);
         startActivity(intent);
     }
 

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -38,7 +39,21 @@ public class ImcActivity extends AppCompatActivity {
 
     }
 
-    public void Calcular(View view) {
+    public void calcular(View view) {
+
+        if(alturaMetros.getText() == null || alturaMetros.getText().toString().isEmpty()){
+            Toast.makeText(getApplication(), "Favor informar Altura!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(alturaCentimetro.getText() == null || alturaCentimetro.getText().toString().isEmpty()){
+            Toast.makeText(getApplication(), "Favor informar Centímetros!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(peso.getText() == null || peso.getText().toString().isEmpty()){
+            Toast.makeText(getApplication(), "Favor informar Peso!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         Double totalMetros;
         Double total;
 

@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".activity.calculadora.ChurrascoActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,7 +24,10 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/qntHomens"
                 android:inputType="number"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColorHint="@color/churrasco200"
+                android:textColor="@color/churrasco200"
+                android:theme="@style/ChurrascoEditTextTheme"/>
 
             <EditText
                 android:id="@+id/churrascoMulheres"
@@ -34,7 +35,10 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/qntMulheres"
                 android:inputType="number"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColorHint="@color/churrasco200"
+                android:textColor="@color/churrasco200"
+                android:theme="@style/ChurrascoEditTextTheme"/>
 
             <EditText
                 android:id="@+id/churrascoCriancas"
@@ -42,13 +46,19 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/qntCriancas"
                 android:inputType="number"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColorHint="@color/churrasco200"
+                android:textColor="@color/churrasco200"
+                android:theme="@style/ChurrascoEditTextTheme"/>
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="calcular"
-                android:text="Calcular" />
+                android:text="Calcular"
+                android:background="#004d40"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="12dp"/>
 
 
             <TextView
@@ -58,7 +68,12 @@
                 android:layout_marginTop="12dp"
                 android:paddingLeft="8dp"
                 android:textColor="@color/colorPrimaryDarkChurrasco"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:gravity="center" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -85,15 +100,14 @@
                     android:textColor="@color/colorPrimaryDarkChurrasco"
                     android:textSize="18dp" />
             </LinearLayout>
+            </ScrollView>
         </LinearLayout>
-    </ScrollView>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:foregroundGravity="bottom"
-        android:gravity="bottom">
+        android:foregroundGravity="bottom">
 
         <com.google.android.gms.ads.AdView
             android:id="@+id/churrascoAdView"
@@ -103,4 +117,4 @@
             ads:adSize="BANNER"
             ads:adUnitId="@string/banner_ad_unit_id"></com.google.android.gms.ads.AdView>
     </LinearLayout>
-</RelativeLayout>
+</LinearLayout>

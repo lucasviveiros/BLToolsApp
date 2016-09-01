@@ -31,9 +31,10 @@
                     android:hint="@string/alturaMetros"
                     android:inputType="numberDecimal"
                     android:textAlignment="center"
-                    android:layout_marginRight="8dp" />
-
-
+                    android:layout_marginRight="8dp"
+                    android:textColorHint="@color/imc200"
+                    android:textColor="@color/imc200"
+                    android:theme="@style/ImcEditTextTheme"/>
 
                 <EditText
                     android:id="@+id/imcAlturaCentimetro"
@@ -42,11 +43,12 @@
                     android:hint="@string/alturaCentimetros"
                     android:inputType="numberDecimal"
                     android:textAlignment="center"
-                    android:layout_marginRight="8dp" />
+                    android:layout_marginRight="8dp"
+                    android:textColorHint="@color/imc200"
+                    android:textColor="@color/imc200"
+                    android:theme="@style/ImcEditTextTheme"/>
 
             </LinearLayout>
-
-
 
             <EditText
                 android:id="@+id/imcPeso"
@@ -54,14 +56,19 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/pesoKg"
                 android:inputType="number"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:textColorHint="@color/imc200"
+                android:textColor="@color/imc200"
+                android:theme="@style/ImcEditTextTheme"/>
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Calcular"
-                android:onClick="Calcular"/>
-
+                android:onClick="calcular"
+                android:background="#311b92"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="12dp"/>
 
             <TextView
                 android:id="@+id/imcResultado"
@@ -100,6 +107,5 @@
             android:layout_gravity="bottom">
         </com.google.android.gms.ads.AdView>
     </LinearLayout>
-
 
 </LinearLayout>

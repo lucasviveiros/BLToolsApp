@@ -22,10 +22,10 @@
        <!-- <item name="colorAccent">@color/colorAccent</item>-->
     </style>
 
-    <style name="AppThemeGasolina" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppThemeCombustivel" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimaryGasolina</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkGasolina</item>
+        <item name="colorPrimary">@color/colorPrimaryCombustivel</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkCombustivel</item>
         <!--<item name="colorAccent">@color/colorAccent</item>-->
     </style>
 
@@ -35,6 +35,31 @@
         <item name="colorPrimary">@color/colorPrimaryConsumo</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkConsumo</item>
         <!--<item name="colorAccent">@color/colorAccent</item>-->
+    </style>
+
+
+    <style name="ImcEditTextTheme">
+        <item name="colorControlNormal">@color/imc300</item>
+        <item name="colorControlActivated">@color/imc400</item>
+        <item name="colorControlHighlight">@color/imc400</item>
+    </style>
+
+    <style name="ChurrascoEditTextTheme">
+        <item name="colorControlNormal">@color/churrasco300</item>
+        <item name="colorControlActivated">@color/churrasco400</item>
+        <item name="colorControlHighlight">@color/churrasco400</item>
+    </style>
+
+    <style name="CombustivelEditTextTheme">
+        <item name="colorControlNormal">@color/combustivel300</item>
+        <item name="colorControlActivated">@color/combustivel400</item>
+        <item name="colorControlHighlight">@color/combustivel400</item>
+    </style>
+
+    <style name="ConsumoEditTextTheme">
+        <item name="colorControlNormal">@color/consumo300</item>
+        <item name="colorControlActivated">@color/consumo300</item>
+        <item name="colorControlHighlight">@color/consumo400</item>
     </style>
 
 </resources>

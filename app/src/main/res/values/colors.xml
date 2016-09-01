@@ -15,10 +15,44 @@
     <color name="colorPrimaryDarkChurrasco">#00796b</color>
 
     <!--TEMA DA TELA GASOLINA-->
-    <color name="colorPrimaryGasolina">#4caf50</color>
-    <color name="colorPrimaryDarkGasolina">#388e3c</color>
+    <color name="colorPrimaryCombustivel">#4caf50</color>
+    <color name="colorPrimaryDarkCombustivel">#388e3c</color>
 
     <!--TEMA DA TELA CONSUMO-->
     <color name="colorPrimaryConsumo">#ff9800</color>
     <color name="colorPrimaryDarkConsumo">#f57c00</color>
+
+    <!-- COR TELA IMC 200-->
+    <color name="imc200">#b39ddb</color>
+    <!-- COR TELA IMC 300-->
+    <color name="imc300">#9575cd</color>
+    <!-- COR TELA IMC 400-->
+    <color name="imc400">#7e57c2</color>
+
+    <!-- COR TELA CHURRASCO 200-->
+    <color name="churrasco200">#80cbc4</color>
+    <!-- COR TELA CHURRASCO 300-->
+    <color name="churrasco300">#4db6ac</color>
+    <!-- COR TELA CHURRASCO 400-->
+    <color name="churrasco400">#26a69a</color>
+
+    <!-- COR TELA COMBUSTIVEL 200-->
+    <color name="combustivel200">#a5d6a7</color>
+    <!-- COR TELA COMBUSTIVEL 300-->
+    <color name="combustivel300">#81c784</color>
+    <!-- COR TELA COMBUSTIVEL 400-->
+    <color name="combustivel400">#66bb6a</color>
+    <!-- COR TELA COMBUSTIVEL 900-->
+    <color name="combustivel900">#1b5e20</color>
+
+    <!-- COR TELA CONSUMO 200-->
+    <color name="consumo200">#ffcc80</color>
+    <!-- COR TELA CONSUMO 300-->
+    <color name="consumo300">#ffb74d</color>
+    <!-- COR TELA CONSUMO 400-->
+    <color name="consumo400">#ffa726</color>
+    <!-- COR TELA CONSUMO 900-->
+    <color name="consumo900">#e65100</color>
+
+
 </resources>

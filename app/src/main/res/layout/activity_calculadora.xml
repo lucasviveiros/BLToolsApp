@@ -33,7 +33,7 @@
         android:id="@+id/Gasolina"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/label_gasolinaXetanol"
+        android:text="@string/label_combustivelXetanol"
         android:onClick="navGasolina"
         android:textStyle="bold"
         android:layout_marginBottom="10dp"/>

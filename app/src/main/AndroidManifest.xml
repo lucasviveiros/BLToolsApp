@@ -34,14 +34,14 @@
             android:name=".activity.calculadora.ChurrascoActivity" />
         <activity
             android:screenOrientation="portrait"
-            android:theme="@style/AppThemeGasolina"
-            android:label="@string/label_gasolinaXetanol"
-            android:name=".activity.calculadora.GasolinaActivity" />
+            android:theme="@style/AppThemeCombustivel"
+            android:label="@string/label_combustivelXetanol"
+            android:name=".activity.calculadora.CombustivelActivity" />
         <activity
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeConsumo"
             android:label="@string/label_consumo"
-            android:name=".activity.calculadora.ConsumoActivity"></activity>
+            android:name=".activity.calculadora.ConsumoActivity"/>
     </application>
 
 </manifest>
