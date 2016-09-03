@@ -3,14 +3,11 @@ package br.com.lampmobile.dialog;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,10 +17,26 @@ import java.util.Map;
 import br.com.lampmobile.R;
 import br.com.lampmobile.adapter.ChurrascoResultadoAdapter;
 import br.com.lampmobile.helper.ChurrascoHelper;
+import br.com.lampmobile.model.Churrasco;
+import br.com.lampmobile.model.Historico;
 
 public class ChurrascoResultadoDialogFragment extends DialogFragment {
 
-    private Map<ChurrascoHelper.Tipo, List<ChurrascoHelper.Churrasco>> mapChurrasco;
+    private Map<ChurrascoHelper.Tipo, List<Churrasco>> mapChurrasco;
+    private String pessoas;
+    private Historico historico;
+
+    public void setPessoas(String pessoas) {
+        this.pessoas = pessoas;
+    }
+
+    public void setHistorico(Historico historico) {
+        this.historico = historico;
+    }
+
+    public void setMapChurrasco(Map<ChurrascoHelper.Tipo, List<Churrasco>> mapChurrasco) {
+        this.mapChurrasco = mapChurrasco;
+    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -40,7 +53,9 @@ public class ChurrascoResultadoDialogFragment extends DialogFragment {
                 .setPositiveButton(R.string.salvar, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                        // sign in the user ...
+                        ChurrascoHelper helper = new ChurrascoHelper(getActivity());
+                        SQLiteDatabase db = helper.getReadableDatabase();
+                        helper.salvarHistorico(db, historico);
                     }
                 })
                 .setNegativeButton(R.string.fechar, new DialogInterface.OnClickListener() {
@@ -51,25 +66,25 @@ public class ChurrascoResultadoDialogFragment extends DialogFragment {
         return builder.create();
     }
 
-    public void setMapChurrasco(Map<ChurrascoHelper.Tipo, List<ChurrascoHelper.Churrasco>> mapChurrasco) {
-        this.mapChurrasco = mapChurrasco;
-    }
-
     public void setResultado(View view) {
-        ChurrascoResultadoAdapter adapterCarnes = new ChurrascoResultadoAdapter(getActivity(), mapChurrasco.get(ChurrascoHelper.Tipo.CARNE));
-        ListView listViewCarnes = (ListView) view.findViewById(R.id.churrascoCarnesResultado);
+        List<Churrasco> itens = mapChurrasco.get(ChurrascoHelper.Tipo.CARNE);
+        itens.addAll(mapChurrasco.get(ChurrascoHelper.Tipo.ACOMPANHAMENTO));
+        itens.addAll(mapChurrasco.get(ChurrascoHelper.Tipo.BEBIDA));
+        itens.addAll(mapChurrasco.get(ChurrascoHelper.Tipo.OUTROS));
+
+        ChurrascoResultadoAdapter adapterCarnes = new ChurrascoResultadoAdapter(getContext());
+        for (Churrasco item : itens) {
+            if (item.getResultado() != null) {
+                adapterCarnes.addItem(item);
+            } else {
+                adapterCarnes.addSeparatorItem(item);
+            }
+        }
+        ListView listViewCarnes = (ListView) view.findViewById(R.id.churrascoResultado);
         listViewCarnes.setAdapter(adapterCarnes);
 
-        ChurrascoResultadoAdapter adapterAcompanhamentos = new ChurrascoResultadoAdapter(getActivity(), mapChurrasco.get(ChurrascoHelper.Tipo.ACOMPANHAMENTO));
-        ListView listViewAcompanhamentos = (ListView) view.findViewById(R.id.churrascoAcompanhamentosResultado);
-        listViewAcompanhamentos.setAdapter(adapterAcompanhamentos);
+        TextView numeroPessoas = (TextView) view.findViewById(R.id.churrascoNumeroPessoas);
+        numeroPessoas.setText(pessoas);
 
-        ChurrascoResultadoAdapter adapterOutrosmentos = new ChurrascoResultadoAdapter(getActivity(), mapChurrasco.get(ChurrascoHelper.Tipo.OUTROS));
-        ListView listViewOutros = (ListView) view.findViewById(R.id.churrascoOutrosResultado);
-        listViewOutros.setAdapter(adapterOutrosmentos);
-
-        ChurrascoResultadoAdapter adapterBebidas = new ChurrascoResultadoAdapter(getActivity(), mapChurrasco.get(ChurrascoHelper.Tipo.BEBIDA));
-        ListView listViewBebidas = (ListView) view.findViewById(R.id.churrascoBebidasResultado);
-        listViewBebidas.setAdapter(adapterBebidas);
     }
 }

@@ -37,6 +37,7 @@
     <string name="acompanhamentos">Acompanhamentos</string>
     <string name="bebidas">Bebidas</string>
     <string name="outros">Outros</string>
+    <string name="buttonUndo">DESFAZER</string>
 
 
 </resources>

@@ -12,10 +12,11 @@ import java.util.List;
 
 import br.com.lampmobile.R;
 import br.com.lampmobile.helper.ChurrascoHelper;
+import br.com.lampmobile.model.Churrasco;
 
 public class ChurrascoDialogFragment extends DialogFragment {
 
-    List<ChurrascoHelper.Churrasco> churrascos;
+    List<Churrasco> churrascos;
     List mSelectedItems;
     CharSequence[] itens;
     boolean[] itensChecados;
@@ -25,7 +26,7 @@ public class ChurrascoDialogFragment extends DialogFragment {
      *
      * @param churrascos
      */
-    public void criarArrays(List<ChurrascoHelper.Churrasco> churrascos) {
+    public void criarArrays(List<Churrasco> churrascos) {
         this.churrascos = churrascos;
         churrascoToArray(churrascos);
     }
@@ -57,7 +58,7 @@ public class ChurrascoDialogFragment extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                         int i = 0;
-                        for (ChurrascoHelper.Churrasco churrasco : churrascos) {
+                        for (Churrasco churrasco : churrascos) {
                             churrasco.setAtivo(itensChecados[i]);
                             i++;
                         }
@@ -78,12 +79,12 @@ public class ChurrascoDialogFragment extends DialogFragment {
         return builder.create();
     }
 
-    private void churrascoToArray(List<ChurrascoHelper.Churrasco> churrascos) {
+    private void churrascoToArray(List<Churrasco> churrascos) {
         itens = new CharSequence[churrascos.size()];
         itensChecados = new boolean[churrascos.size()];
 
         int i = 0;
-        for (ChurrascoHelper.Churrasco churrasco : churrascos) {
+        for (Churrasco churrasco : churrascos) {
             itens[i] = churrasco.getItem();
             itensChecados[i] = churrasco.getAtivo();
             i++;

@@ -30,62 +30,17 @@
    </LinearLayout>
 
     <TextView
+        android:id="@+id/churrascoNumeroPessoas"
         android:layout_width="match_parent"
         android:layout_height="32dp"
-        android:background="@color/colorPrimaryChurrasco"
-        android:text="@string/carnes"
+        android:background="@color/colorPrimaryDarkChurrasco"
         android:textColor="@color/branco"
         android:padding="4dp"
-        android:textSize="18dp" />
+        android:textSize="18sp" />
 
     <ListView
-        android:id="@+id/churrascoCarnesResultado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </ListView>
-
-    <TextView
+        android:id="@+id/churrascoResultado"
         android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:background="@color/colorPrimaryChurrasco"
-        android:text="@string/acompanhamentos"
-        android:textColor="@color/branco"
-        android:padding="4dp"
-        android:textSize="18dp" />
-
-    <ListView
-        android:id="@+id/churrascoAcompanhamentosResultado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </ListView>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:background="@color/colorPrimaryChurrasco"
-        android:text="@string/bebidas"
-        android:textColor="@color/branco"
-        android:padding="4dp"
-        android:textSize="24dp" />
-
-    <ListView
-        android:id="@+id/churrascoBebidasResultado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </ListView>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="32dp"
-        android:background="@color/colorPrimaryChurrasco"
-        android:text="@string/outros"
-        android:textColor="@color/branco"
-        android:padding="4dp"
-        android:textSize="24dp" />
-
-    <ListView
-        android:id="@+id/churrascoOutrosResultado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
     </ListView>
 </LinearLayout>

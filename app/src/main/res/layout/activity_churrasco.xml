@@ -67,39 +67,48 @@
             android:layout_marginTop="12dp"
             android:gravity="center"
             android:paddingLeft="8dp"
+            android:text="Histórico"
             android:textColor="@color/colorPrimaryDarkChurrasco"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
-        <ScrollView
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/churrascoHistorico"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                android:textStyle="bold">
+            <!--<ListView-->
+                <!--android:id="@+id/churrascoHistorico"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent">-->
+            <!--</ListView>-->
 
-                <TextView
-                    android:id="@+id/churrascoResultadoItem1"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="8dp"
-                    android:textColor="@color/colorPrimaryDarkChurrasco"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:textStyle="bold">-->
 
-                <TextView
-                    android:id="@+id/churrascoResultadoValor1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingRight="10dp"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/colorPrimaryDarkChurrasco"
-                    android:textSize="18dp" />
-            </LinearLayout>
-        </ScrollView>
+                <!--<TextView-->
+                    <!--android:id="@+id/churrascoResultadoItem1"-->
+                    <!--android:layout_width="200dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:paddingLeft="8dp"-->
+                    <!--android:textColor="@color/colorPrimaryDarkChurrasco"-->
+                    <!--android:textSize="18dp"-->
+                    <!--android:textStyle="bold" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/churrascoResultadoValor1"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:paddingRight="10dp"-->
+                    <!--android:textAlignment="textEnd"-->
+                    <!--android:textColor="@color/colorPrimaryDarkChurrasco"-->
+                    <!--android:textSize="18dp" />-->
+            <!--</LinearLayout>-->
     </LinearLayout>
 
     <com.google.android.gms.ads.AdView

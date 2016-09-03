@@ -9,17 +9,17 @@
         android:id="@+id/churrascoResultadoItem"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:paddingLeft="8dp"
+        android:paddingStart="10dp"
         android:textColor="@color/colorPrimaryDarkChurrasco"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/churrascoResultadoValor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingRight="10dp"
+        android:layout_marginEnd="10dp"
         android:textAlignment="textEnd"
         android:textColor="@color/colorPrimaryDarkChurrasco"
-        android:textSize="18dp" />
+        android:textSize="18sp" />
 </LinearLayout>
