@@ -145,6 +145,7 @@ public class ChurrascoHelper extends SQLiteOpenHelper {
         private String item;
         private Tipo tipo;
         private Boolean ativo;
+        private String resultado;
 
         public Integer getId() {
             return id;
@@ -176,6 +177,14 @@ public class ChurrascoHelper extends SQLiteOpenHelper {
 
         public void setAtivo(Boolean ativo) {
             this.ativo = ativo;
+        }
+
+        public String getResultado() {
+            return resultado;
+        }
+
+        public void setResultado(String resultado) {
+            this.resultado = resultado;
         }
     }
 }

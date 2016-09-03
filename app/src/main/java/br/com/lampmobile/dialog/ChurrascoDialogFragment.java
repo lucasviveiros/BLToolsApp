@@ -9,7 +9,6 @@ import android.support.v4.app.DialogFragment;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import br.com.lampmobile.R;
 import br.com.lampmobile.helper.ChurrascoHelper;
@@ -23,6 +22,7 @@ public class ChurrascoDialogFragment extends DialogFragment {
 
     /**
      * Metodo para criar os arrays necessários na classe.
+     *
      * @param churrascos
      */
     public void criarArrays(List<ChurrascoHelper.Churrasco> churrascos) {
@@ -71,7 +71,8 @@ public class ChurrascoDialogFragment extends DialogFragment {
                 })
                 .setNegativeButton(R.string.cancelar, new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int id) { }
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
                 });
 
         return builder.create();

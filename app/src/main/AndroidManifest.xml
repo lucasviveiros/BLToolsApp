@@ -31,7 +31,8 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeChurrasco"
             android:label="@string/label_churrasco"
-            android:name=".activity.calculadora.ChurrascoActivity" />
+            android:name=".activity.calculadora.ChurrascoActivity"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeCombustivel"

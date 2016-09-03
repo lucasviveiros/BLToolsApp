@@ -53,6 +53,9 @@
     <color name="consumo400">#ffa726</color>
     <!-- COR TELA CONSUMO 900-->
     <color name="consumo900">#e65100</color>
+    <!-- COR TELA CONSUMO 900-->
+    <color name="branco">#FFFFFF</color>
+
 
 
 </resources>

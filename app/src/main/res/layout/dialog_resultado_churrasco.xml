@@ -1,0 +1,91 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#004d40">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:scaleType="center"
+            android:text="@string/label_churrasco"
+            android:textColor="@color/branco"
+            android:textSize="42dp"
+            android:paddingLeft="4dp"
+            android:id="@+id/textView" />
+
+        <ImageView
+            app:srcCompat="@drawable/ic_share_white_24px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:contentDescription="@string/app_name" />
+   </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:background="@color/colorPrimaryChurrasco"
+        android:text="@string/carnes"
+        android:textColor="@color/branco"
+        android:padding="4dp"
+        android:textSize="18dp" />
+
+    <ListView
+        android:id="@+id/churrascoCarnesResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </ListView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:background="@color/colorPrimaryChurrasco"
+        android:text="@string/acompanhamentos"
+        android:textColor="@color/branco"
+        android:padding="4dp"
+        android:textSize="18dp" />
+
+    <ListView
+        android:id="@+id/churrascoAcompanhamentosResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </ListView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:background="@color/colorPrimaryChurrasco"
+        android:text="@string/bebidas"
+        android:textColor="@color/branco"
+        android:padding="4dp"
+        android:textSize="24dp" />
+
+    <ListView
+        android:id="@+id/churrascoBebidasResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </ListView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:background="@color/colorPrimaryChurrasco"
+        android:text="@string/outros"
+        android:textColor="@color/branco"
+        android:padding="4dp"
+        android:textSize="24dp" />
+
+    <ListView
+        android:id="@+id/churrascoOutrosResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </ListView>
+</LinearLayout>

@@ -32,6 +32,11 @@
     <string name="qntHomens">Quantidade de homens</string>
     <string name="qntMulheres">Quantidade de mulheres</string>
     <string name="qntCriancas">Quantidade de crianças</string>
+    <string name="fechar">Fechar</string>
+    <string name="carnes">Carnes</string>
+    <string name="acompanhamentos">Acompanhamentos</string>
+    <string name="bebidas">Bebidas</string>
+    <string name="outros">Outros</string>
 
 
 </resources>
