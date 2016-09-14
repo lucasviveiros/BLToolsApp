@@ -1,54 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:padding="@dimen/activity_vertical_margin"
     tools:context=".activity.calculadora.ImcActivity">
-
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_view"
-        android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        card_view:cardCornerRadius="4dp"
-        >
 
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="55dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="8dp"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin">
+            android:layout_gravity="center"
+            card_view:cardCornerRadius="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="8dp"
-                >
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin">
+
 
                 <EditText
                     android:id="@+id/imcAlturaMetros"
-                    android:layout_width="100dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/alturaMetros"
                     android:inputType="numberDecimal"
-                    android:textAlignment="center"
-                    android:layout_marginRight="8dp"
-                    android:textColorHint="@color/imc200"
-                    android:textColor="@color/imc200"
-                    android:theme="@style/ImcEditTextTheme"/>
+                    android:textSize="16sp"
+                    android:theme="@style/CinzaThme" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="right"
+                    android:text="metros"
+                    android:textSize="10sp" />
 
                 <EditText
                     android:id="@+id/imcAlturaCentimetro"
@@ -56,74 +58,88 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/alturaCentimetros"
                     android:inputType="numberDecimal"
-                    android:textAlignment="center"
-                    android:layout_marginRight="8dp"
-                    android:textColorHint="@color/imc200"
-                    android:textColor="@color/imc200"
-                    android:theme="@style/ImcEditTextTheme"/>
+                    android:textSize="16sp"
+                    android:theme="@style/CinzaThme" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="right"
+                    android:text="Centimetros"
+                    android:textSize="10sp" />
+
+
+                <EditText
+                    android:id="@+id/imcPeso"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/pesoKg"
+                    android:inputType="number"
+                    android:textSize="16sp"
+                    android:theme="@style/CinzaThme" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="right"
+                    android:text="Peso"
+                    android:textSize="10sp" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/button_rounded_corner_imc"
+                    android:onClick="calcular"
+                    android:text="Calcular"
+                    android:textColor="@android:color/white" />
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view_historico"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            card_view:cardCornerRadius="5dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                android:paddingBottom="4dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="4dp">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/imcHistorico"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
 
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/imcPeso"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/pesoKg"
-                android:inputType="number"
-                android:textAlignment="center"
-                android:textColorHint="@color/imc200"
-                android:textColor="@color/imc200"
-                android:theme="@style/ImcEditTextTheme"/>
+        </android.support.v7.widget.CardView>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Calcular"
-                android:onClick="calcular"
-                android:background="#311b92"
-                android:textColor="@android:color/white"
-                android:layout_marginTop="12dp"
-                />
-
-            <TextView
-                android:id="@+id/imcResultado"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="44sp"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center_horizontal"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimaryDarkImc"/>
-
-            <TextView
-                android:id="@+id/imcResultadoDescricao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:layout_marginTop="4dp"
-                android:layout_gravity="center_horizontal"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimaryDarkImc"/>
-
-
-
-        </LinearLayout>
-</android.support.v7.widget.CardView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
-        android:foregroundGravity="bottom"
-        android:layout_gravity="bottom">
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            ads:adSize="BANNER"
-            ads:adUnitId="@string/banner_ad_unit_id"
-            android:layout_gravity="bottom">
-        </com.google.android.gms.ads.AdView>
     </LinearLayout>
 
-</LinearLayout>
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:foregroundGravity="bottom"
+        android:gravity="bottom"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
+
+    </com.google.android.gms.ads.AdView>
+
+</RelativeLayout>

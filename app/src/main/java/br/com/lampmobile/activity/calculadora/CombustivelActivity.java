@@ -8,12 +8,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import br.com.lampmobile.R;
+import br.com.lampmobile.dialog.CombustivelDialogFragment;
+import br.com.lampmobile.utils.Utils;
 
 public class CombustivelActivity extends AppCompatActivity {
 
     EditText gasolina;
     EditText alcool;
-    TextView resultado;
+    String resultado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +24,13 @@ public class CombustivelActivity extends AppCompatActivity {
 
         gasolina = (EditText) findViewById(R.id.combustivelGasolina);
         alcool = (EditText) findViewById(R.id.combustivelAlcool);
-        resultado = (TextView) findViewById(R.id.combustivelResultadoDescricao);
     }
 
     public void calcular(View view)
     {
+        //Fechar teclado
+        Utils.fecharTeclado(this);
+
         if(gasolina.getText() == null || gasolina.getText().toString().isEmpty()){
             Toast.makeText(getApplication(), "Favor informar valor da Gasolina!", Toast.LENGTH_SHORT).show();
             return;
@@ -45,10 +49,14 @@ public class CombustivelActivity extends AppCompatActivity {
 
         if(total > 0.7)
         {
-            resultado.setText("ABASTEÇA COM GASOLINA");
+            resultado = "ABASTEÇA COM GASOLINA";
         }else
         {
-            resultado.setText("ABASTEÇA COM ÁLCOOL");
+            resultado = "ABASTEÇA COM ÁLCOOL";
         }
+
+        CombustivelDialogFragment dialog = new CombustivelDialogFragment();
+        dialog.setResultado(resultado);
+        dialog.show(getSupportFragmentManager(), "consumoDialog");
     }
 }

@@ -28,6 +28,9 @@
     <color name="imc300">#9575cd</color>
     <!-- COR TELA IMC 400-->
     <color name="imc400">#7e57c2</color>
+    <!-- COR TELA IMC 900-->
+    <color name="imc900">#311b92</color>
+
 
     <!-- COR TELA CHURRASCO 200-->
     <color name="churrasco200">#80cbc4</color>

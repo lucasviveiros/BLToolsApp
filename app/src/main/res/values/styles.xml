@@ -64,8 +64,8 @@
 
     <style name="CinzaThme">
         <item name="colorControlNormal">#CFCFCF</item>
-        <item name="colorControlActivated">#CFCFCF</item>
-        <item name="colorControlHighlight">#363636</item>
+        <item name="colorControlActivated">#4F4F4F</item>
+        <item name="colorControlHighlight">#4F4F4F</item>
     </style>
 
 

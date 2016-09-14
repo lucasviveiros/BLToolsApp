@@ -8,13 +8,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import br.com.lampmobile.R;
+import br.com.lampmobile.dialog.ConsumoDialogFragment;
+import br.com.lampmobile.utils.Utils;
 
 public class ConsumoActivity extends AppCompatActivity {
 
     EditText quilometros;
     EditText litros;
 
-    TextView resultado;
+    String resultado;
 
 
     @Override
@@ -24,11 +26,14 @@ public class ConsumoActivity extends AppCompatActivity {
 
         quilometros = (EditText) findViewById(R.id.consumoQuilometro);
         litros = (EditText) findViewById(R.id.consumoCombustivel);
-        resultado = (TextView) findViewById(R.id.consumoResultadoDescricao);
     }
 
     public void calcular(View view)
     {
+
+        //Fechar teclado
+        Utils.fecharTeclado(this);
+
         if(quilometros.getText() == null || quilometros.getText().toString().isEmpty()){
             Toast.makeText(getApplication(), "Favor informar Quilômetros rodados!", Toast.LENGTH_SHORT).show();
             return;
@@ -45,7 +50,11 @@ public class ConsumoActivity extends AppCompatActivity {
 
         total = q / l;
         String res = String.format("%.1f", total);
-        resultado.setText("Consumo aproximadamente de "+ res +" Km por litro de combustível");
+        resultado = "Consumo aproximadamente de "+ res +" Km por litro de combustível";
+
+        ConsumoDialogFragment dialog = new ConsumoDialogFragment();
+        dialog.setResultado(resultado);
+        dialog.show(getSupportFragmentManager(), "consumoDialog");
 
     }
 }
