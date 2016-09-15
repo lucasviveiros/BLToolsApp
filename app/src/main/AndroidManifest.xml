@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.lampmobile">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,8 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:screenOrientation="portrait"
-            android:name=".activity.InicialActivity">
+            android:name=".activity.InicialActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,30 +21,36 @@
             </intent-filter>
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".activity.CalculadoraActivity"
-            android:label="@string/label_calculadora" />
+            android:label="@string/label_calculadora"
+            android:screenOrientation="portrait" />
         <activity
+            android:name=".activity.calculadora.ImcActivity"
+            android:label="@string/label_imc"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeImc"
-            android:label="@string/label_imc"
-            android:name=".activity.calculadora.ImcActivity" />
-        <activity
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeChurrasco"
-            android:label="@string/label_churrasco"
-            android:name=".activity.calculadora.ChurrascoActivity"
             android:windowSoftInputMode="adjustPan"/>
         <activity
+            android:name=".activity.calculadora.ChurrascoActivity"
+            android:label="@string/label_churrasco"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeChurrasco"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activity.calculadora.CombustivelActivity"
+            android:label="@string/label_combustivelXetanol"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeCombustivel"
-            android:label="@string/label_combustivelXetanol"
-            android:name=".activity.calculadora.CombustivelActivity" />
+            android:windowSoftInputMode="adjustPan"/>
         <activity
+            android:name=".activity.calculadora.ConsumoActivity"
+            android:label="@string/label_consumo"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeConsumo"
-            android:label="@string/label_consumo"
-            android:name=".activity.calculadora.ConsumoActivity"/>
+            android:windowSoftInputMode="adjustPan"/>
+
+        <activity android:name=".activity.LeitoresActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

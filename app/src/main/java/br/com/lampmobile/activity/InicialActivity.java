@@ -19,4 +19,9 @@ public class InicialActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CalculadoraActivity.class);
         startActivity(intent);
     }
+
+    public void navLeitores(View view) {
+        Intent intent = new Intent(this, LeitoresActivity.class);
+        startActivity(intent);
+    }
 }

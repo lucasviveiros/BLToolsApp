@@ -49,6 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/label_leitores"
+        android:onClick="navLeitores"
         android:textStyle="bold"
         android:layout_marginBottom="10dp"/>
 

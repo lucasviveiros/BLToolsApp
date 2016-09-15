@@ -13,6 +13,8 @@
     <string name="label_combustivelXetanol">GASOLINA X ETANOL</string>
     <string name="label_consumo">Consumo combustível</string>
 
+    <string name="label_qr_code">QR Code</string>
+
     <string name="masculino">Masculino</string>
     <string name="feminino">Feminino</string>
     <string name="idade">Idade</string>
@@ -38,6 +40,9 @@
     <string name="bebidas">Bebidas</string>
     <string name="outros">Outros</string>
     <string name="buttonUndo">DESFAZER</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
