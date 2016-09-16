@@ -10,9 +10,9 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:paddingStart="10dp"
-        android:textColor="@color/colorPrimaryDarkChurrasco"
+        android:textColor="@android:color/black"
         android:textSize="14sp"
-        android:textStyle="bold" />
+        android:layout_marginLeft="10dp"/>
 
     <TextView
         android:id="@+id/churrascoResultadoValor"
@@ -20,6 +20,6 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:textAlignment="textEnd"
-        android:textColor="@color/colorPrimaryDarkChurrasco"
+        android:textColor="@android:color/black"
         android:textSize="14sp" />
 </LinearLayout>

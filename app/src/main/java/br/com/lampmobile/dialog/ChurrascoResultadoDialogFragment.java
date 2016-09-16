@@ -50,7 +50,8 @@ public class ChurrascoResultadoDialogFragment extends DialogFragment {
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
         builder.setTitle(R.string.label_churrasco);
-        builder.setIcon(R.drawable.ic_share_black_24px);
+        //builder.setIcon(R.drawable.ic_share_black_24px);
+
         builder.setView(view)
                 // Add action buttons
                 .setPositiveButton(R.string.salvar, new DialogInterface.OnClickListener() {

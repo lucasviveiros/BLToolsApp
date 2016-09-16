@@ -59,7 +59,7 @@
     <!-- COR TELA CONSUMO 900-->
     <color name="branco">#FFFFFF</color>
 
-    <color name="preto">#000</color>
+    <color name="preto">@android:color/black</color>
 
 
 </resources>

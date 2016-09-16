@@ -62,7 +62,8 @@
                     android:hint="@string/precoEtanol"
                     android:inputType="numberDecimal"
                     android:textSize="16sp"
-                    android:theme="@style/CinzaThme" />
+                    android:theme="@style/CinzaThme"
+                    android:imeOptions="actionDone"/>
 
                 <TextView
                     android:layout_width="match_parent"

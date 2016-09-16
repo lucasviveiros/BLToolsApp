@@ -76,16 +76,19 @@
                     android:hint="@string/pesoKg"
                     android:inputType="number"
                     android:textSize="16sp"
-                    android:theme="@style/CinzaThme" />
+                    android:theme="@style/CinzaThme"
+                    android:imeOptions="actionDone"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="right"
                     android:text="Peso"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    />
 
                 <Button
+                    android:id="@+id/imcCalcular"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
