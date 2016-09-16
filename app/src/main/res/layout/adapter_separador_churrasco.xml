@@ -2,16 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:padding="1dp">
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/churrascoSeparador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryChurrasco"
+        android:background="#004d40"
         android:textColor="@color/branco"
         android:padding="4dp"
-        android:textSize="18sp" />
+        android:textSize="14sp" />
 
 </LinearLayout>

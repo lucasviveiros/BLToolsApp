@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 import br.com.lampmobile.R;
+import br.com.lampmobile.activity.calculadora.ChurrascoActivity;
 import br.com.lampmobile.adapter.ChurrascoResultadoAdapter;
 import br.com.lampmobile.helper.ChurrascoHelper;
 import br.com.lampmobile.model.Churrasco;
@@ -48,6 +49,8 @@ public class ChurrascoResultadoDialogFragment extends DialogFragment {
 
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
+        builder.setTitle(R.string.label_churrasco);
+        builder.setIcon(R.drawable.ic_share_black_24px);
         builder.setView(view)
                 // Add action buttons
                 .setPositiveButton(R.string.salvar, new DialogInterface.OnClickListener() {
@@ -56,6 +59,9 @@ public class ChurrascoResultadoDialogFragment extends DialogFragment {
                         ChurrascoHelper helper = new ChurrascoHelper(getActivity());
                         SQLiteDatabase db = helper.getReadableDatabase();
                         helper.salvarHistorico(db, historico);
+
+                        // RECUPERA HISTÓRICO
+                        ((ChurrascoActivity)getActivity()).getHistorico();
                     }
                 })
                 .setNegativeButton(R.string.fechar, new DialogInterface.OnClickListener() {
