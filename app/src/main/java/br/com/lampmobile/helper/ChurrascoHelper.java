@@ -98,6 +98,21 @@ public class ChurrascoHelper extends SQLiteOpenHelper {
     }
 
     /**
+     * Atualiza item de histórico para favorito ou não.
+     *
+     * @param db
+     * @param historico
+     */
+    public void atualizarFavoritoHistorico(SQLiteDatabase db, Historico historico) {
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put("favorito", historico.getFavorito()? Integer.valueOf(1) : Integer.valueOf(0));
+
+        db.update(TABLE_HISTORICO_NAME, contentValues, "id = ?", new String[]{historico.getId().toString()});
+    }
+
+
+    /**
      * Atualiza dados no da lista no banco de dados.
      *
      * @param db - SQLiteDatabase

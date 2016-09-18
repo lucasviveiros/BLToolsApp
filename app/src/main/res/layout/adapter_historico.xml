@@ -8,8 +8,7 @@
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:layout_margin="16dp"
-        android:textSize="14sp"
-        android:text="9 adultos e 3 crianças" />
+        android:textSize="14sp" />
 
     <Button
     android:id="@+id/historicoFavorito"

@@ -48,7 +48,7 @@ public class ChurrascoDialogFragment extends DialogFragment {
                                     // If the user checked the item, add it to the selected items
                                     mSelectedItems.add(which);
                                 } else if (mSelectedItems.contains(which)) {
-                                    // Else, if the item is already in the array, remove it
+                                    // Else, if the item is already in the array, remover it
                                     mSelectedItems.remove(Integer.valueOf(which));
                                 }
                             }

@@ -50,7 +50,7 @@ public abstract class CalculadoraActivity extends AppCompatActivity {
             public int getSwipeDirs(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
                 int position = viewHolder.getAdapterPosition();
                 HistoricoAdapter testAdapter = (HistoricoAdapter) recyclerView.getAdapter();
-                if (testAdapter.isPendingRemoval(position)) {
+                if (testAdapter.isPententeExclusao(position)) {
                     return 0;
                 }
                 return super.getSwipeDirs(recyclerView, viewHolder);
@@ -60,7 +60,7 @@ public abstract class CalculadoraActivity extends AppCompatActivity {
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
                 int swipedPosition = viewHolder.getAdapterPosition();
                 HistoricoAdapter adapter = (HistoricoAdapter) getRecyclerView().getAdapter();
-                adapter.pendingRemoval(swipedPosition);
+                adapter.itemPendenteExclusao(swipedPosition);
             }
 
             @Override
@@ -127,7 +127,7 @@ public abstract class CalculadoraActivity extends AppCompatActivity {
                     // some items might be animating down and some items might be animating up to close the gap left by the removed item
                     // this is not exclusive, both movement can be happening at the same time
                     // to reproduce this leave just enough items so the first one and the last one would be just a little off screen
-                    // then remove one from the middle
+                    // then remover one from the middle
 
                     // find first child with translationY > 0
                     // and last one with translationY < 0
