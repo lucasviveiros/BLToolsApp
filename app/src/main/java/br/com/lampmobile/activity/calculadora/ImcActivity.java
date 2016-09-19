@@ -111,7 +111,7 @@ public class ImcActivity extends CalculadoraActivity {
 
     @Override
     public RecyclerView getRecyclerView() {
-        return this.mRecyclerView;
+            return this.mRecyclerView;
     }
 
     @Override

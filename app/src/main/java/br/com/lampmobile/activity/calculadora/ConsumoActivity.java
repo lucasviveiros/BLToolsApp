@@ -1,22 +1,35 @@
 package br.com.lampmobile.activity.calculadora;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
+import java.util.List;
+
 import br.com.lampmobile.R;
+import br.com.lampmobile.adapter.historico.ConsumoHistoricoAdapter;
 import br.com.lampmobile.dialog.ConsumoDialogFragment;
+import br.com.lampmobile.helper.ConsumoHelper;
+import br.com.lampmobile.model.Historico;
 import br.com.lampmobile.utils.Utils;
 
-public class ConsumoActivity extends AppCompatActivity {
+public class ConsumoActivity extends CalculadoraActivity {
 
     EditText quilometros;
     EditText litros;
 
     String resultado;
+
+    RecyclerView mRecyclerView;
 
 
     @Override
@@ -26,6 +39,13 @@ public class ConsumoActivity extends AppCompatActivity {
 
         quilometros = (EditText) findViewById(R.id.consumoQuilometro);
         litros = (EditText) findViewById(R.id.consumoCombustivel);
+
+        getHistorico();
+
+        // INICIALIZA PROPAGANDA
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     public void calcular(View view)
@@ -52,9 +72,52 @@ public class ConsumoActivity extends AppCompatActivity {
         String res = String.format("%.1f", total);
         resultado = "Consumo aproximadamente de "+ res +" Km por litro de combustível";
 
+        ConsumoHelper helper = new ConsumoHelper(this);
         ConsumoDialogFragment dialog = new ConsumoDialogFragment();
         dialog.setResultado(resultado);
+        dialog.setHistorico(helper.criarHistorico(resultado,
+                quilometros.getText().toString(), litros.getText().toString()));
         dialog.show(getSupportFragmentManager(), "consumoDialog");
 
+    }
+
+    @Override
+    public RecyclerView getRecyclerView() {
+        return this.mRecyclerView;
+    }
+
+    public void setDados(String q, String l) {
+        quilometros.setText(q);
+        litros.setText(l);
+    }
+
+    @Override
+    public void getHistorico() {
+        ConsumoHelper helper = new ConsumoHelper(this);
+        SQLiteDatabase db = helper.getReadableDatabase();
+        List<Historico> historicos = helper.getHistoricos(db);
+
+        if (historicos != null) {
+            mRecyclerView = (RecyclerView) findViewById(R.id.consumoHistorico);
+
+            // use this setting to improve performance if you know that changes
+            // in content do not change the layout size of the RecyclerView
+            mRecyclerView.setHasFixedSize(true);
+
+            // use a linear layout manager
+            mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+            ConsumoHistoricoAdapter imcHistoricoAdapter = new ConsumoHistoricoAdapter(this, historicos);
+            // specify an adapter (see also next example)
+            mRecyclerView.setAdapter(imcHistoricoAdapter);
+
+            setUpItemTouchHelper();
+            setUpAnimationDecoratorHelper();
+        }
+    }
+
+    @Override
+    public int getCorFundoExclusao() {
+        return R.color.colorPrimaryConsumo;
     }
 }
