@@ -33,11 +33,11 @@ public class ChurrascoHistoricoAdapter extends HistoricoAdapter {
             public void onItemClick(int position, View v) {
                 final Historico historico = itens.get(position);
 
-                Integer h = (Integer) historico.getParams()[0];
-                Integer m = (Integer) historico.getParams()[1];
-                Integer c = (Integer) historico.getParams()[2];
+                Integer m = (Integer) historico.getParams()[0];
+                Integer c = (Integer) historico.getParams()[1];
+                Integer p = (Integer) historico.getParams()[2];
 
-                ((ChurrascoActivity)context).setDados(h.toString(), m.toString(), c.toString());
+                ((ChurrascoActivity)context).setDados(m.toString(), c.toString(), p.toString());
             }
         });
 
