@@ -35,11 +35,6 @@ public class ChurrascoActivity extends CalculadoraActivity {
     EditText qntCriancas;
     RecyclerView mRecyclerView;
 
-    float historicX = Float.NaN, historicY = Float.NaN;
-    static final int DELTA = 50;
-
-    enum Direction {LEFT, RIGHT;}
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +56,11 @@ public class ChurrascoActivity extends CalculadoraActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_config, menu);
         return true;
+    }
+
+    @Override
+    public int getCorFundoExclusao() {
+        return R.color.colorPrimaryChurrasco;
     }
 
     @Override
@@ -225,13 +225,20 @@ public class ChurrascoActivity extends CalculadoraActivity {
             // use a linear layout manager
             mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-            ChurrascoHistoricoAdapter mAdapter = new ChurrascoHistoricoAdapter(getApplicationContext(), historicos);
+            ChurrascoHistoricoAdapter mAdapter = new ChurrascoHistoricoAdapter(this, historicos);
             // specify an adapter (see also next example)
             mRecyclerView.setAdapter(mAdapter);
+
             setUpItemTouchHelper();
             setUpAnimationDecoratorHelper();
         }
     }
 
+    public void setDados(String homens, String mulheres, String criancas) {
+        qntHomens.setText(homens);
+        qntMulheres.setText(mulheres);
+        qntCriancas.setText(criancas);
 
+    }
 }
+

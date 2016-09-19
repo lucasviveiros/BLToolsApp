@@ -22,6 +22,8 @@ public abstract class CalculadoraActivity extends AppCompatActivity {
 
     public abstract void getHistorico();
 
+    public abstract int getCorFundoExclusao();
+
     protected void setUpItemTouchHelper() {
 
         ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
@@ -33,7 +35,7 @@ public abstract class CalculadoraActivity extends AppCompatActivity {
             boolean initiated;
 
             private void init() {
-                background = new ColorDrawable(getResources().getColor(R.color.colorPrimaryChurrasco));
+                background = new ColorDrawable(getResources().getColor(getCorFundoExclusao()));
                 xMark = ContextCompat.getDrawable(CalculadoraActivity.this, R.drawable.ic_delete_forever_white_24px);
                 xMark.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
                 xMarkMargin = (int) CalculadoraActivity.this.getResources().getDimension(R.dimen.ic_clear_margin);
@@ -110,7 +112,7 @@ public abstract class CalculadoraActivity extends AppCompatActivity {
             boolean initiated;
 
             private void init() {
-                background = new ColorDrawable(getResources().getColor(R.color.colorPrimaryChurrasco));
+                background = new ColorDrawable(getResources().getColor(getCorFundoExclusao()));
                 initiated = true;
             }
 

@@ -49,8 +49,7 @@ public abstract class HistoricoAdapter extends RecyclerView.Adapter {
     }
 
     public void alterar(int position) {
-        Historico historico = itens.get(position);
-        notifyItemChanged(position, historico);
+        notifyItemChanged(position, itens.get(position));
     }
 
     @Override
@@ -102,7 +101,6 @@ public abstract class HistoricoAdapter extends RecyclerView.Adapter {
     }
 
     public boolean isPententeExclusao(int position) {
-        Historico item = itens.get(position);
-        return itensPendenteExclusao.contains(item);
+        return itensPendenteExclusao.contains(itens.get(position));
     }
 }

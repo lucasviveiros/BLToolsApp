@@ -3,11 +3,13 @@ package br.com.lampmobile.adapter.historico;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
 
 import br.com.lampmobile.R;
+import br.com.lampmobile.activity.calculadora.ChurrascoActivity;
 import br.com.lampmobile.helper.ChurrascoHelper;
 import br.com.lampmobile.model.Historico;
 import br.com.lampmobile.viewHolder.HistoricoViewHolder;
@@ -24,8 +26,22 @@ public class ChurrascoHistoricoAdapter extends HistoricoAdapter {
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new HistoricoViewHolder(parent);
+    public RecyclerView.ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
+        RecyclerView.ViewHolder view = new HistoricoViewHolder(parent);
+        ((HistoricoViewHolder)view).setOnItemClickListener(new HistoricoViewHolder.ClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                final Historico historico = itens.get(position);
+
+                Integer h = (Integer) historico.getParams()[0];
+                Integer m = (Integer) historico.getParams()[1];
+                Integer c = (Integer) historico.getParams()[2];
+
+                ((ChurrascoActivity)context).setDados(h.toString(), m.toString(), c.toString());
+            }
+        });
+
+        return view;
     }
 
     @Override
