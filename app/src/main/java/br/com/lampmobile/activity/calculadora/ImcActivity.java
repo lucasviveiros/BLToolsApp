@@ -16,6 +16,8 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import br.com.lampmobile.R;
@@ -100,7 +102,10 @@ public class ImcActivity extends CalculadoraActivity {
         ImcHelper helper = new ImcHelper(this);
         ImcDialogFragment dialog = new ImcDialogFragment();
         dialog.setResultado(resultado);
-        dialog.setHistorico(helper.criarHistorico(resultado,
+        Date data = new Date();
+        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+
+        dialog.setHistorico(helper.criarHistorico("Cálculo: "+formatador.format(data).toString(),
                 alturaMetros.getText().toString(), alturaCentimetro.getText().toString(), peso.getText().toString()));
         dialog.show(getSupportFragmentManager(), "imcDialog");
 

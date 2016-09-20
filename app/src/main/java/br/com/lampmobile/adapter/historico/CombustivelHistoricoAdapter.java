@@ -9,20 +9,22 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import br.com.lampmobile.R;
+import br.com.lampmobile.activity.calculadora.CombustivelActivity;
 import br.com.lampmobile.activity.calculadora.ImcActivity;
+import br.com.lampmobile.helper.CombustivelHelper;
 import br.com.lampmobile.helper.ImcHelper;
 import br.com.lampmobile.model.Historico;
 import br.com.lampmobile.viewHolder.HistoricoViewHolder;
 
-public class ImcHistoricoAdapter extends HistoricoAdapter {
+public class CombustivelHistoricoAdapter extends HistoricoAdapter {
 
-    public ImcHistoricoAdapter(Context context, List<Historico> itens) {
+    public CombustivelHistoricoAdapter(Context context, List<Historico> itens) {
         super(context, itens);
     }
 
     @Override
     public int getCorFundoRemocao() {
-        return R.color.colorPrimaryImc;
+        return R.color.colorPrimaryCombustivel;
     }
 
     @Override
@@ -33,11 +35,10 @@ public class ImcHistoricoAdapter extends HistoricoAdapter {
             public void onItemClick(int position, View v) {
                 final Historico historico = itens.get(position);
 
-                Integer h = (Integer) historico.getParams()[0];
-                Integer m = (Integer) historico.getParams()[1];
-                Integer c = (Integer) historico.getParams()[2];
+                Double g = (Double) historico.getParams()[0];
+                Double e = (Double) historico.getParams()[1];
 
-                ((ImcActivity)context).setDados(h.toString(), m.toString(), c.toString());
+                ((CombustivelActivity)context).setDados(g.toString(), e.toString());
             }
         });
 
@@ -58,7 +59,7 @@ public class ImcHistoricoAdapter extends HistoricoAdapter {
                     Historico h = itens.get(itens.indexOf(item));
                     remover(itens.indexOf(item));
 
-                    ImcHelper helper = new ImcHelper(context);
+                    CombustivelHelper helper = new CombustivelHelper(context);
                     SQLiteDatabase db = helper.getReadableDatabase();
                     helper.apagarHistorico(db, h);
                 }
@@ -71,7 +72,7 @@ public class ImcHistoricoAdapter extends HistoricoAdapter {
     @Override
     public void itemSelecionadoFavorito(int position) {
         final Historico historico = itens.get(position);
-        ImcHelper helper = new ImcHelper(context);
+        CombustivelHelper helper = new CombustivelHelper(context);
         SQLiteDatabase db = helper.getReadableDatabase();
 
         if (historico.getFavorito()) {
