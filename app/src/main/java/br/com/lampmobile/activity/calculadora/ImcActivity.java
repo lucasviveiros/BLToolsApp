@@ -105,7 +105,7 @@ public class ImcActivity extends CalculadoraActivity {
         Date data = new Date();
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
 
-        dialog.setHistorico(helper.criarHistorico("Cálculo: "+formatador.format(data).toString(),
+        dialog.setHistorico(helper.criarHistorico("Cálculo dia "+formatador.format(data).toString(),
                 alturaMetros.getText().toString(), alturaCentimetro.getText().toString(), peso.getText().toString()));
         dialog.show(getSupportFragmentManager(), "imcDialog");
 
@@ -155,6 +155,12 @@ public class ImcActivity extends CalculadoraActivity {
         alturaMetros.setText(metros);
         alturaCentimetro.setText(centimetros);
         peso.setText(kilo);
+    }
+
+    public void limpaCampos() {
+        alturaMetros.setText("");
+        alturaCentimetro.setText("");
+        peso.setText("");
     }
 
 }

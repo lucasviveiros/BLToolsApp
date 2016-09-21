@@ -44,6 +44,9 @@ public class ConsumoDialogFragment extends DialogFragment {
 
                         // RECUPERA HISTÓRICO
                         ((ConsumoActivity)getActivity()).getHistorico();
+
+                        // LIMPA CAMPOS
+                        ((ConsumoActivity)getActivity()).limpaCampos();
                     }
                 })
                 .setNegativeButton(R.string.fechar, new DialogInterface.OnClickListener() {

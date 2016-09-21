@@ -63,6 +63,9 @@ public class ChurrascoResultadoDialogFragment extends DialogFragment {
 
                         // RECUPERA HISTÓRICO
                         ((ChurrascoActivity)getActivity()).getHistorico();
+
+                        // LIMPA CAMPOS
+                        ((ChurrascoActivity)getActivity()).limpaCampos();
                     }
                 })
                 .setNegativeButton(R.string.fechar, new DialogInterface.OnClickListener() {

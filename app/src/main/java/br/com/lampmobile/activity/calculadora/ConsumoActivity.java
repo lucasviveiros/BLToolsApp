@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import br.com.lampmobile.R;
@@ -43,7 +45,7 @@ public class ConsumoActivity extends CalculadoraActivity {
         getHistorico();
 
         // INICIALIZA PROPAGANDA
-        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdView mAdView = (AdView) findViewById(R.id.consumoAdView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
     }
@@ -75,7 +77,10 @@ public class ConsumoActivity extends CalculadoraActivity {
         ConsumoHelper helper = new ConsumoHelper(this);
         ConsumoDialogFragment dialog = new ConsumoDialogFragment();
         dialog.setResultado(resultado);
-        dialog.setHistorico(helper.criarHistorico(resultado,
+        Date data = new Date();
+        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+
+        dialog.setHistorico(helper.criarHistorico("Cálculo dia "+formatador.format(data).toString(),
                 quilometros.getText().toString(), litros.getText().toString()));
         dialog.show(getSupportFragmentManager(), "consumoDialog");
 
@@ -89,6 +94,11 @@ public class ConsumoActivity extends CalculadoraActivity {
     public void setDados(String q, String l) {
         quilometros.setText(q);
         litros.setText(l);
+    }
+
+    public void limpaCampos() {
+        quilometros.setText("");
+        litros.setText("");
     }
 
     @Override

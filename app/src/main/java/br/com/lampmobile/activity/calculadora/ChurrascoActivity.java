@@ -240,5 +240,12 @@ public class ChurrascoActivity extends CalculadoraActivity {
         qntCriancas.setText(criancas);
 
     }
+
+    public void limpaCampos() {
+        qntHomens.setText("");
+        qntMulheres.setText("");
+        qntCriancas.setText("");
+
+    }
 }
 

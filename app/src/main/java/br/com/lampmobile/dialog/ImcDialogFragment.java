@@ -44,6 +44,9 @@ public class ImcDialogFragment extends DialogFragment {
 
                         // RECUPERA HISTÓRICO
                         ((ImcActivity)getActivity()).getHistorico();
+
+                        // LIMPA CAMPOS
+                        ((ImcActivity)getActivity()).limpaCampos();
                     }
                 })
                 .setNegativeButton(R.string.fechar, new DialogInterface.OnClickListener() {

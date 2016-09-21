@@ -10,6 +10,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import br.com.lampmobile.R;
@@ -33,6 +38,13 @@ public class CombustivelActivity extends CalculadoraActivity {
 
         gasolina = (EditText) findViewById(R.id.combustivelGasolina);
         alcool = (EditText) findViewById(R.id.combustivelAlcool);
+
+        getHistorico();
+
+        // INICIALIZA PROPAGANDA
+        AdView mAdView = (AdView) findViewById(R.id.combustivelAdView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     public void calcular(View view)
@@ -67,7 +79,10 @@ public class CombustivelActivity extends CalculadoraActivity {
         CombustivelHelper helper = new CombustivelHelper(this);
         CombustivelDialogFragment dialog = new CombustivelDialogFragment();
         dialog.setResultado(resultado);
-        dialog.setHistorico(helper.criarHistorico(resultado,
+        Date data = new Date();
+        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+
+        dialog.setHistorico(helper.criarHistorico("Cálculo dia "+formatador.format(data).toString(),
                 gasolina.getText().toString(), alcool.getText().toString()));
         dialog.show(getSupportFragmentManager(), "consumoDialog");
     }
@@ -110,6 +125,12 @@ public class CombustivelActivity extends CalculadoraActivity {
     public void setDados(String g, String e) {
         gasolina.setText(g);
         alcool.setText(e);
+    }
+
+
+    public void limpaCampos(){
+        gasolina.setText("");
+        alcool.setText("");
     }
 
 }

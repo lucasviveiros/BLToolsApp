@@ -44,6 +44,10 @@ public class CombustivelDialogFragment extends DialogFragment {
 
                         // RECUPERA HISTÓRICO
                         ((CombustivelActivity)getActivity()).getHistorico();
+
+                        // LIMPA CAMPOS
+                        ((CombustivelActivity)getActivity()).limpaCampos();
+
                     }
                 })
                 .setNegativeButton(R.string.fechar, new DialogInterface.OnClickListener() {
