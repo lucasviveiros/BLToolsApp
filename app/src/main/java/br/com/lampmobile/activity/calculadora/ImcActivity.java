@@ -151,6 +151,11 @@ public class ImcActivity extends CalculadoraActivity {
         return R.color.colorPrimaryImc;
     }
 
+    @Override
+    public void compartilhar(View view) {
+
+    }
+
     public void setDados(String metros, String centimetros, String kilo) {
         alturaMetros.setText(metros);
         alturaCentimetro.setText(centimetros);

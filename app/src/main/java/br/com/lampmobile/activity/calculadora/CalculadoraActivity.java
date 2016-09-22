@@ -24,6 +24,8 @@ public abstract class CalculadoraActivity extends AppCompatActivity {
 
     public abstract int getCorFundoExclusao();
 
+    public abstract void compartilhar(View view);
+
     protected void setUpItemTouchHelper() {
 
         ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {

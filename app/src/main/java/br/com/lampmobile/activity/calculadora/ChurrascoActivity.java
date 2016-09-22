@@ -1,6 +1,8 @@
 package br.com.lampmobile.activity.calculadora;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -87,6 +89,17 @@ public class ChurrascoActivity extends CalculadoraActivity {
                 (qntCriancas.getText().toString().isEmpty() || qntCriancas.getText().toString().equals("0"))) {
             throw new Exception();
         }
+    }
+
+    @Override
+    public void compartilhar(View view) {
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.setType("image/png");
+        Uri uri = Uri.parse("android.resource://br.com.lampmobile/drawable/icone_calculadora.png");
+        shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "O resuldado do churrasco foi... Baixe já o app http://goo.gl/mR2d");
+        startActivity(Intent.createChooser(shareIntent, "Compartilhar"));
     }
 
     @Override

@@ -130,4 +130,9 @@ public class ConsumoActivity extends CalculadoraActivity {
     public int getCorFundoExclusao() {
         return R.color.colorPrimaryConsumo;
     }
+
+    @Override
+    public void compartilhar(View view) {
+
+    }
 }

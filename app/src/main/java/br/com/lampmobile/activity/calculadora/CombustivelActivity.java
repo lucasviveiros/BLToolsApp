@@ -122,6 +122,11 @@ public class CombustivelActivity extends CalculadoraActivity {
         return R.color.colorPrimaryCombustivel;
     }
 
+    @Override
+    public void compartilhar(View view) {
+
+    }
+
     public void setDados(String g, String e) {
         gasolina.setText(g);
         alcool.setText(e);

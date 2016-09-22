@@ -8,17 +8,26 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-   </LinearLayout>
+        android:orientation="horizontal"
+        android:weightSum="1">
 
-    <TextView
-        android:id="@+id/churrascoNumeroPessoas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textColor="@color/common_plus_signin_btn_text_light_focused"
-        android:textSize="16sp"
-        android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/churrascoNumeroPessoas"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/common_plus_signin_btn_text_light_focused"
+            android:textSize="16sp"
+            android:layout_weight="1.0" />
+
+        <Button
+            android:id="@+id/compartilhar"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:background="@android:drawable/ic_menu_share"
+            android:onClick="compartilhar"
+            android:layout_marginEnd="10dp"/>
+    </LinearLayout>
 
     <ListView
         android:id="@+id/churrascoResultado"
