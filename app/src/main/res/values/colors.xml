@@ -9,7 +9,6 @@
     <color name="colorPrimaryDarkImc">#512da8</color>
     <color name="colorAccentImc">#7C4DFF</color>
 
-
     <!--TEMA DA TELA CHURRASCO-->
     <color name="colorPrimaryChurrasco">#009688</color>
     <color name="colorPrimaryDarkChurrasco">#00796b</color>
@@ -21,6 +20,11 @@
     <!--TEMA DA TELA CONSUMO-->
     <color name="colorPrimaryConsumo">#ff9800</color>
     <color name="colorPrimaryDarkConsumo">#f57c00</color>
+
+    <!--TEMA DA TELA CONSUMO-->
+    <color name="colorPrimaryTxJuros">#795548</color>
+    <color name="colorPrimaryDarkTxJuros">#5D4037</color>
+    <color name="colorAccentTxJuros">#795548</color>
 
     <!-- COR TELA IMC 200-->
     <color name="imc200">#b39ddb</color>
@@ -56,9 +60,15 @@
     <color name="consumo400">#ffa726</color>
     <!-- COR TELA CONSUMO 900-->
     <color name="consumo900">#e65100</color>
-    <!-- COR TELA CONSUMO 900-->
-    <color name="branco">#FFFFFF</color>
 
+    <!-- COR TELA TAXA JUROS 200-->
+    <color name="txJuros200">#BCAAA4</color>
+    <!-- COR TELA TAXA JUROS 300-->
+    <color name="txJuros300">#A1887F</color>
+    <!-- COR TELA TAXA JUROS 300-->
+    <color name="txJuros400">#8D6E63</color>
+
+    <color name="branco">@android:color/white</color>
     <color name="preto">@android:color/black</color>
 
 

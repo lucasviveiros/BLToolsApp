@@ -37,6 +37,12 @@
         <!--<item name="colorAccent">@color/colorAccent</item>-->
     </style>
 
+    <style name="AppTxJurosTheme"  parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimaryTxJuros</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkTxJuros</item>
+        <item name="colorAccent">@color/colorAccentTxJuros</item>
+    </style>
+
 
     <style name="ImcEditTextTheme">
         <item name="colorControlNormal">@color/imc300</item>
@@ -62,11 +68,34 @@
         <item name="colorControlHighlight">@color/consumo400</item>
     </style>
 
+    <style name="TxJurosEditTextTheme">
+        <item name="colorControlNormal">@color/txJuros200</item>
+        <item name="colorControlActivated">@color/txJuros300</item>
+        <item name="colorControlHighlight">@color/txJuros400</item>
+    </style>
+
     <style name="CinzaThme">
         <item name="colorControlNormal">#CFCFCF</item>
         <item name="colorControlActivated">#4F4F4F</item>
         <item name="colorControlHighlight">#4F4F4F</item>
     </style>
 
+
+    <style name="TabTxJuros" parent="Widget.Design.TabLayout">
+        <!--<item name="tabMaxWidth">@dimen/tab_max_width</item>-->
+        <item name="tabIndicatorColor">@color/colorPrimaryTxJuros</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabPaddingStart">8dp</item>
+        <item name="tabPaddingEnd">8dp</item>
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+        <item name="tabTextAppearance">@style/TabTextAppearance</item>
+        <item name="tabSelectedTextColor">@android:color/white</item>
+    </style>
+
+    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+        <!--<item name="android:textColor">@color/color_white_semitransparent</item>-->
+        <item name="textAllCaps">true</item>
+    </style>
 
 </resources>

@@ -12,6 +12,7 @@
     <string name="label_churrasco">Churrasco</string>
     <string name="label_combustivelXetanol">GASOLINA X ETANOL</string>
     <string name="label_consumo">Consumo combustível</string>
+    <string name="label_tx_juros">Taxa de Juros</string>
 
     <string name="label_qr_code">QR Code</string>
 
@@ -44,6 +45,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="compartilhar">Compartilhar</string>
+    <string name="numeroMeses">Número de meses</string>
+    <string name="meses">Meses</string>
+    <string name="txJuros">Taxa de Juros</string>
+    <string name="juros">Juros</string>
+    <string name="valorFinanciamento">Valor do Financiamento</string>
+    <string name="valor">Valor</string>
 
 
 </resources>

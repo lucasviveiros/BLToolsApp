@@ -48,4 +48,13 @@
         android:textStyle="bold"
         android:layout_marginBottom="10dp"/>
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_tx_juros"
+        android:onClick="navTxJuros"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp" />
+
 </LinearLayout>

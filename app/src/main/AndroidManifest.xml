@@ -48,6 +48,12 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeConsumo"
             android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".activity.calculadora.TxJurosActivity"
+            android:label="@string/label_tx_juros"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTxJurosTheme"
+            android:windowSoftInputMode="adjustPan" />
 
         <activity android:name=".activity.LeitoresActivity"
             android:screenOrientation="portrait"/>
