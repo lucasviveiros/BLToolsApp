@@ -41,6 +41,7 @@
         <item name="colorPrimary">@color/colorPrimaryTxJuros</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkTxJuros</item>
         <item name="colorAccent">@color/colorAccentTxJuros</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
 
@@ -80,21 +81,19 @@
         <item name="colorControlHighlight">#4F4F4F</item>
     </style>
 
-
     <style name="TabTxJuros" parent="Widget.Design.TabLayout">
-        <!--<item name="tabMaxWidth">@dimen/tab_max_width</item>-->
-        <item name="tabIndicatorColor">@color/colorPrimaryTxJuros</item>
+        <item name="tabIndicatorColor">@color/branco</item>
         <item name="tabIndicatorHeight">2dp</item>
         <item name="tabPaddingStart">8dp</item>
         <item name="tabPaddingEnd">8dp</item>
-        <item name="tabBackground">?attr/selectableItemBackground</item>
-        <item name="tabTextAppearance">@style/TabTextAppearance</item>
+        <item name="tabBackground">@color/colorPrimaryTxJuros</item>
+        <item name="tabTextAppearance">@style/TabTxJurosTextAppearance</item>
         <item name="tabSelectedTextColor">@android:color/white</item>
     </style>
 
-    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
-        <item name="android:textSize">14sp</item>
-        <!--<item name="android:textColor">@color/color_white_semitransparent</item>-->
+    <style name="TabTxJurosTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/txJuros200</item>
         <item name="textAllCaps">true</item>
     </style>
 

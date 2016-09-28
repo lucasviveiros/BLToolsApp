@@ -13,6 +13,9 @@ public class TxJurosActivity extends CalculadoraActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        getSupportActionBar().setElevation(0);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tx_juros);
 

@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/activity_vertical_margin"
     tools:context=".activity.calculadora.TxJurosActivity">
 
     <LinearLayout
@@ -17,85 +16,16 @@
         android:focusableInTouchMode="true"
         android:orientation="vertical">
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            card_view:cardCornerRadius="4dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="vertical"
-                android:paddingBottom="@dimen/activity_vertical_margin">
-
                 <android.support.design.widget.TabLayout
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
+                    style="@style/TabTxJuros"
                     ads:tabMode="scrollable">
 
                     <android.support.design.widget.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Vlr Prestação">
-
-                        <!--<LinearLayout-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:gravity="center_vertical"-->
-                            <!--android:orientation="vertical">-->
-
-                            <!--<EditText-->
-                                <!--android:id="@+id/churrascoHomens"-->
-                                <!--android:layout_width="fill_parent"-->
-                                <!--android:layout_height="wrap_content"-->
-                                <!--android:hint="@string/numeroMeses"-->
-                                <!--android:inputType="number"-->
-                                <!--android:textSize="16sp"-->
-                                <!--android:theme="@style/CinzaThme" />-->
-
-                            <!--<TextView-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="match_parent"-->
-                                <!--android:gravity="end"-->
-                                <!--android:text="@string/meses"-->
-                                <!--android:textSize="10sp" />-->
-
-                            <!--<EditText-->
-                                <!--android:id="@+id/churrascoMulheres"-->
-                                <!--android:layout_width="fill_parent"-->
-                                <!--android:layout_height="wrap_content"-->
-                                <!--android:hint="@string/txJuros"-->
-                                <!--android:inputType="number"-->
-                                <!--android:textSize="16sp"-->
-                                <!--android:theme="@style/CinzaThme" />-->
-
-                            <!--<TextView-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="match_parent"-->
-                                <!--android:gravity="end"-->
-                                <!--android:text="@string/juros"-->
-                                <!--android:textSize="10sp" />-->
-
-                            <!--<EditText-->
-                                <!--android:id="@+id/churrascoCriancas"-->
-                                <!--android:layout_width="fill_parent"-->
-                                <!--android:layout_height="wrap_content"-->
-                                <!--android:hint="@string/valorFinanciamento"-->
-                                <!--android:imeOptions="actionDone"-->
-                                <!--android:inputType="number"-->
-                                <!--android:textSize="16sp"-->
-                                <!--android:theme="@style/CinzaThme" />-->
-
-                            <!--<TextView-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="match_parent"-->
-                                <!--android:gravity="end"-->
-                                <!--android:text="@string/valor"-->
-                                <!--android:textSize="10sp" />-->
-                        <!--</LinearLayout>-->
-
                     </android.support.design.widget.TabItem>
 
                     <android.support.design.widget.TabItem
@@ -117,56 +47,6 @@
 
                 </android.support.design.widget.TabLayout>
 
-
-                <!--<EditText-->
-                    <!--android:id="@+id/churrascoHomens"-->
-                    <!--android:layout_width="fill_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:hint="@string/qntHomens"-->
-                    <!--android:inputType="number"-->
-                    <!--android:textSize="16sp"-->
-                    <!--android:theme="@style/CinzaThme" />-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:gravity="right"-->
-                    <!--android:text="Homens"-->
-                    <!--android:textSize="10sp" />-->
-
-                <!--<EditText-->
-                    <!--android:id="@+id/churrascoMulheres"-->
-                    <!--android:layout_width="fill_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:hint="@string/qntMulheres"-->
-                    <!--android:inputType="number"-->
-                    <!--android:textSize="16sp"-->
-                    <!--android:theme="@style/CinzaThme" />-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:gravity="right"-->
-                    <!--android:text="Mulheres"-->
-                    <!--android:textSize="10sp" />-->
-
-                <!--<EditText-->
-                    <!--android:id="@+id/churrascoCriancas"-->
-                    <!--android:layout_width="fill_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:hint="@string/qntCriancas"-->
-                    <!--android:inputType="number"-->
-                    <!--android:textSize="16sp"-->
-                    <!--android:theme="@style/CinzaThme"-->
-                    <!--android:imeOptions="actionDone"/>-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:gravity="right"-->
-                    <!--android:text="Crianças"-->
-                    <!--android:textSize="10sp" />-->
-
                 <Button
                     android:id="@+id/txJurosCalcular"
                     android:layout_width="match_parent"
@@ -179,39 +59,6 @@
                     android:layout_marginRight="20dp"
                     android:textColor="@android:color/white" />
 
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
-
-
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/tx_juros_card_view_historico"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp"
-            card_view:cardCornerRadius="5dp">
-
-
-            <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:orientation="vertical"-->
-                <!--android:paddingBottom="4dp"-->
-                <!--android:paddingLeft="4dp"-->
-                <!--android:paddingRight="4dp"-->
-                <!--android:paddingTop="4dp">-->
-
-                <!--<android.support.v7.widget.RecyclerView-->
-                    <!--android:id="@+id/churrascoHistorico"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="0dp"-->
-                    <!--android:layout_weight="1" />-->
-
-            <!--</LinearLayout>-->
-
-        </android.support.v7.widget.CardView>
 
     </LinearLayout>
 
