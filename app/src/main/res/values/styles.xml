@@ -42,6 +42,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDarkTxJuros</item>
         <item name="colorAccent">@color/colorAccentTxJuros</item>
         <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
 

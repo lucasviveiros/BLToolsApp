@@ -8,71 +8,33 @@
     android:orientation="vertical"
     tools:context=".activity.calculadora.TxJurosActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="55dp"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:orientation="vertical">
-
-                <android.support.design.widget.TabLayout
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    style="@style/TabTxJuros"
-                    ads:tabMode="scrollable">
-
-                    <android.support.design.widget.TabItem
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Vlr Prestação">
-                    </android.support.design.widget.TabItem>
-
-                    <android.support.design.widget.TabItem
-                        android:text="Vlr Financiamento"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                    </android.support.design.widget.TabItem>
-
-                    <android.support.design.widget.TabItem
-                        android:text="Taxa Juros"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <android.support.design.widget.TabItem
-                        android:text="Qntdade Meses"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                </android.support.design.widget.TabLayout>
-
-                <Button
-                    android:id="@+id/txJurosCalcular"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/button_rounded_corner_tx_juros"
-                    android:onClick="calcular"
-                    android:text="calcular"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:textColor="@android:color/white" />
-
-
-    </LinearLayout>
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/txJurosAdView"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:foregroundGravity="bottom"
-        android:gravity="bottom"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id">
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:elevation="6dp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        ads:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-    </com.google.android.gms.ads.AdView>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:background="?attr/colorPrimary"
+        android:elevation="6dp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        ads:tabMode="scrollable"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/tab_layout"/>
+
 
 </RelativeLayout>

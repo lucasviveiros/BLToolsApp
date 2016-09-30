@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "br.com.bltoolsapplication"
+        applicationId "br.com.lampmobile"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
@@ -31,5 +31,9 @@ dependencies {
     compile 'me.dm7.barcodescanner:zxing:1.8.4'
     compile 'com.android.support:support-v4:23.4.0'
 }
+
+
+
+
 
 
