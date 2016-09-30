@@ -50,7 +50,9 @@
     <string name="txJuros">Taxa de Juros</string>
     <string name="juros">Juros</string>
     <string name="valorFinanciamento">Valor do Financiamento</string>
+    <string name="valorParcelas">Valor das Parcelas</string>
     <string name="valor">Valor</string>
+    <string name="parcelas">Parcelas</string>
 
 
 </resources>
