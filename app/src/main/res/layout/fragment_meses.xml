@@ -43,7 +43,7 @@
                     android:textSize="10sp" />
 
                 <EditText
-                    android:id="@+id/mesesNumeroMeses"
+                    android:id="@+id/mesesValorParcelas"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/valorParcelas"
