@@ -1,10 +1,12 @@
 package br.com.lampmobile.activity.calculadora;
 
-import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,7 +20,6 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -95,38 +96,15 @@ public class ChurrascoActivity extends CalculadoraActivity {
 
     @Override
     public void compartilhar(View view) {
-       /* Intent shareIntent = new Intent();
-        shareIntent.setAction(Intent.ACTION_SEND);
-        //shareIntent.setType("image/jpeg");
-        //Uri uri = Uri.parse("android.resource://br.com.bltoolsapplication/drawable/icone_calculadora.png");
-        *//*Uri uri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE +
-                "://"  + getResources().getResourcePackageName(R.drawable.teste)
-                + '/' + getResources().getResourceTypeName(R.drawable.teste) + '/' + getResources().getResourceEntryName(R.drawable.teste));
-        shareIntent.putExtra(Intent.EXTRA_STREAM, uri);*//*
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "O resuldado do churrasco foi... Baixe já o app http://goo.gl/mR2d");
-        startActivity(Intent.createChooser(shareIntent, "Compartilhar"));*/
-
-        /*Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, "O resuldado do churrasco foi... Baixe já o app http://goo.gl/mR2d");
-        sendIntent.setType("text/plain");
-        startActivity(sendIntent);*/
-
-        String text = "Look at my awesome picture";
-        Uri uri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE +
-                "://"  + getResources().getResourcePackageName(R.drawable.teste)
-                + '/' + getResources().getResourceTypeName(R.drawable.teste) + '/' + getResources().getResourceEntryName(R.drawable.teste));
-
-        File image = new File(ContentResolver.SCHEME_ANDROID_RESOURCE +
-                "://"  + getResources().getResourcePackageName(R.drawable.teste)
-                + '/' + getResources().getResourceTypeName(R.drawable.teste) + '/' + getResources().getResourceEntryName(R.drawable.teste));
         Intent shareIntent = new Intent();
-        shareIntent.setAction(Intent.ACTION_SEND);
-        shareIntent.putExtra(Intent.EXTRA_TEXT, text);
-        shareIntent.putExtra(Intent.EXTRA_STREAM, image);
+
+        Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.icone_calculadora);
+        shareIntent.putExtra(Intent.EXTRA_TEXT ,"O resuldado do churrasco foi..." + "\n\nLink : " + "http://goo.gl/mR2d" );
+        String url= MediaStore.Images.Media.insertImage(this.getContentResolver(), bm, "iconeLamp", "description");
+        shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(url));
         shareIntent.setType("image/*");
         shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        startActivity(Intent.createChooser(shareIntent, "Share images..."));
+        startActivity(Intent.createChooser(shareIntent, "Share Image"));
 
     }
 
