@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/activity_vertical_margin"
-    tools:context=".activity.calculadora.ImcActivity">
+    tools:context=".activity.calculadora.ImcActivity"
+    android:background="@android:color/white">
 
 
     <LinearLayout
@@ -17,18 +18,9 @@
         android:focusableInTouchMode="true"
         android:orientation="vertical">
 
-
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/card_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            card_view:cardCornerRadius="4dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:orientation="vertical"
                 android:paddingBottom="@dimen/activity_vertical_margin"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -99,16 +91,11 @@
 
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/card_view_historico"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp"
-            card_view:cardCornerRadius="5dp">
-
+            android:layout_height="1dp"
+            android:background="@drawable/button_rounded_corner_imc" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -120,6 +107,7 @@
                 android:paddingRight="4dp"
                 android:paddingTop="4dp">
 
+
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/imcHistorico"
                     android:layout_width="match_parent"
@@ -128,7 +116,6 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
 
     </LinearLayout>
 

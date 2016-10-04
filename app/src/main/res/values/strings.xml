@@ -8,11 +8,11 @@
     <string name="label_leitores">Leitores</string>
     <string name="label_ferramentas">Ferramentas</string>
 
-    <string name="label_imc">IMC</string>
+    <string name="label_imc">Índice de massa corporal</string>
     <string name="label_churrasco">Churrasco</string>
-    <string name="label_combustivelXetanol">GASOLINA X ETANOL</string>
+    <string name="label_combustivelXetanol">Gasolina X Etanol</string>
     <string name="label_consumo">Consumo combustível</string>
-    <string name="label_tx_juros">Taxa de Juros</string>
+    <string name="label_tx_juros">Taxa de juros</string>
 
     <string name="label_qr_code">QR Code</string>
 
@@ -22,8 +22,8 @@
     <string name="pesoKg">Peso (Kg)</string>
     <string name="alturaMetros">Altura (m)</string>
     <string name="alturaCentimetros">Altura (cm)</string>
-    <string name="precoGasolina">Preço Gasolina</string>
-    <string name="precoEtanol">Preço Etanol</string>
+    <string name="precoGasolina">Preço gasolina</string>
+    <string name="precoEtanol">Preço etanol</string>
     <string name="quilometragemRodados">Quilômetros rodados</string>
     <string name="listrosCombustivel">Litros de combustível</string>
 
@@ -47,12 +47,11 @@
     <string name="compartilhar">Compartilhar</string>
     <string name="numeroMeses">Número de meses</string>
     <string name="meses">Meses</string>
-    <string name="txJuros">Taxa de Juros</string>
+    <string name="txJuros">Taxa de juros</string>
     <string name="juros">Juros</string>
-    <string name="valorFinanciamento">Valor do Financiamento</string>
-    <string name="valorParcelas">Valor das Parcelas</string>
+    <string name="valorFinanciamento">Valor do financiamento</string>
+    <string name="valorParcelas">Valor das parcelas</string>
     <string name="valor">Valor</string>
     <string name="parcelas">Parcelas</string>
-
 
 </resources>
