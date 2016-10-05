@@ -1,8 +1,14 @@
 package br.com.lampmobile.activity.calculadora;
 
 import android.app.Dialog;
+import android.content.ContentResolver;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +16,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,9 +42,6 @@ public class ImcActivity extends CalculadoraActivity {
     String resultado;
     RecyclerView mRecyclerView;
 
-    //TextView resultado;
-    //TextView resultadoDescricao;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +56,7 @@ public class ImcActivity extends CalculadoraActivity {
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
 
     }
 
@@ -143,7 +148,6 @@ public class ImcActivity extends CalculadoraActivity {
             setUpItemTouchHelper();
             setUpAnimationDecoratorHelper();
         }
-
     }
 
     @Override
@@ -153,7 +157,15 @@ public class ImcActivity extends CalculadoraActivity {
 
     @Override
     public void compartilhar(View view) {
+        Intent shareIntent = new Intent();
 
+        Bitmap bm = BitmapFactory.decodeResource(view.getResources(), R.drawable.icone_calculadora);
+        shareIntent.putExtra(Intent.EXTRA_TEXT ,"Meu Índice de massa corporal é de " + resultado.toString() + "\n\nLink : " + "http://goo.gl/mR2d" );
+        String url= MediaStore.Images.Media.insertImage(getContentResolver(), bm, "iconeLamp", "description");
+        shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(url));
+        shareIntent.setType("image/*");
+        shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivity(Intent.createChooser(shareIntent, "Share Image"));
     }
 
     public void setDados(String metros, String centimetros, String kilo) {

@@ -1,5 +1,6 @@
 package br.com.lampmobile.activity.calculadora;
 
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;

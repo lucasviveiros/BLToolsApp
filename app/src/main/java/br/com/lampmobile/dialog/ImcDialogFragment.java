@@ -7,6 +7,10 @@ import android.support.v4.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import br.com.lampmobile.R;
 import br.com.lampmobile.activity.calculadora.ImcActivity;
@@ -30,15 +34,22 @@ public class ImcDialogFragment extends DialogFragment {
         this.resultado = resultado;
     }
 
+    TextView res;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        //builder.setMessage(resultado);
-        builder.setView(inflater.inflate(R.layout.dialog_imc, null))
+        View viewDialog = inflater.inflate(R.layout.dialog_imc, null);
+
+        res = (TextView) viewDialog.findViewById(R.id.imcDialogResultado);
+        res.setText(resultado.toString());
+
+        //builder.setTitle(R.string.label_imc);
+
+        builder.setView(viewDialog)
                 .setPositiveButton(R.string.salvar, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         ImcHelper helper = new ImcHelper(getActivity());

@@ -1,5 +1,6 @@
 package br.com.lampmobile.activity.calculadora;
 
+import android.content.ContentResolver;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.PorterDuff;

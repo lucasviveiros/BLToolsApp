@@ -1,6 +1,11 @@
 package br.com.lampmobile.activity.calculadora;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -134,5 +139,14 @@ public class ConsumoActivity extends CalculadoraActivity {
     @Override
     public void compartilhar(View view) {
 
+        Intent shareIntent = new Intent();
+
+        Bitmap bm = BitmapFactory.decodeResource(view.getResources(), R.drawable.icone_calculadora);
+        shareIntent.putExtra(Intent.EXTRA_TEXT ,"Consumo é de " + resultado.toString() + "\n\nLink : " + "http://goo.gl/mR2d" );
+        String url= MediaStore.Images.Media.insertImage(getContentResolver(), bm, "iconeLamp", "description");
+        shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(url));
+        shareIntent.setType("image/*");
+        shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivity(Intent.createChooser(shareIntent, "Share Image"));
     }
 }

@@ -6,6 +6,9 @@ import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 
 import br.com.lampmobile.R;
 import br.com.lampmobile.activity.calculadora.CombustivelActivity;
@@ -29,13 +32,20 @@ public class CombustivelDialogFragment extends DialogFragment {
         this.resultado = resultado;
     }
 
+    TextView res;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(R.string.label_combustivelXetanol);
-        builder.setMessage(resultado)
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        View viewDialog = inflater.inflate(R.layout.dialog_combustivel, null);
+
+        res = (TextView) viewDialog.findViewById(R.id.combustivelDialogResultado);
+        res.setText(resultado.toString());
+
+
+        builder.setView(viewDialog)
                 .setPositiveButton(R.string.salvar, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         CombustivelHelper helper = new CombustivelHelper(getActivity());

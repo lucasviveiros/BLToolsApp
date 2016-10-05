@@ -1,6 +1,11 @@
 package br.com.lampmobile.activity.calculadora;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,6 +35,8 @@ public class CombustivelActivity extends CalculadoraActivity {
     EditText alcool;
     String resultado;
     RecyclerView mRecyclerView;
+    Double gasolinaConverter;
+    Double etanolConverter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,10 +70,10 @@ public class CombustivelActivity extends CalculadoraActivity {
 
         Double total;
 
-        Double g = Double.parseDouble(gasolina.getText().toString());
-        Double a = Double.parseDouble(alcool.getText().toString());
+        gasolinaConverter = Double.parseDouble(gasolina.getText().toString());
+        etanolConverter = Double.parseDouble(alcool.getText().toString());
 
-        total = a / g;
+        total = etanolConverter / gasolinaConverter;
 
         if(total > 0.7)
         {
@@ -124,7 +131,15 @@ public class CombustivelActivity extends CalculadoraActivity {
 
     @Override
     public void compartilhar(View view) {
+        Intent shareIntent = new Intent();
 
+        Bitmap bm = BitmapFactory.decodeResource(view.getResources(), R.drawable.icone_calculadora);
+        shareIntent.putExtra(Intent.EXTRA_TEXT ,"Gasolina: "+ gasolinaConverter.toString() + "\nEtanol: "+ etanolConverter.toString() +"\n" + resultado.toString() + "\n\nLink : " + "http://goo.gl/mR2d" );
+        String url= MediaStore.Images.Media.insertImage(getContentResolver(), bm, "iconeLamp", "description");
+        shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(url));
+        shareIntent.setType("image/*");
+        shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivity(Intent.createChooser(shareIntent, "Share Image"));
     }
 
     public void setDados(String g, String e) {
