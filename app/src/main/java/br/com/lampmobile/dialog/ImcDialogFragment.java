@@ -23,6 +23,7 @@ import br.com.lampmobile.model.Historico;
 public class ImcDialogFragment extends DialogFragment {
 
     private String resultado;
+    private String resultadoPrincipal;
 
     private Historico historico;
 
@@ -34,7 +35,12 @@ public class ImcDialogFragment extends DialogFragment {
         this.resultado = resultado;
     }
 
+    public void setResultadoPrincipal(String resultadoPrincipal) {
+        this.resultadoPrincipal = resultadoPrincipal;
+    }
+
     TextView res;
+    TextView resPrincipal;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -45,9 +51,12 @@ public class ImcDialogFragment extends DialogFragment {
         View viewDialog = inflater.inflate(R.layout.dialog_imc, null);
 
         res = (TextView) viewDialog.findViewById(R.id.imcDialogResultado);
+        resPrincipal = (TextView) viewDialog.findViewById(R.id.imcDialogResultadoPrincipal);
+
+        resPrincipal.setText(resultadoPrincipal.toString());
         res.setText(resultado.toString());
 
-        //builder.setTitle(R.string.label_imc);
+        builder.setTitle(R.string.label_imc);
 
         builder.setView(viewDialog)
                 .setPositiveButton(R.string.salvar, new DialogInterface.OnClickListener() {

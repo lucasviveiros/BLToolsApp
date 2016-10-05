@@ -96,17 +96,18 @@ public class ImcActivity extends CalculadoraActivity {
         String res = String.format("%.2f", imc);
 
         if(imc < 18.5){
-            resultado = res + " - Abaixo do peso";
+            resultado = "Abaixo do peso";
         }else if(imc > 18.5 && imc < 24.9){
-            resultado = res + " - Peso normal";
+            resultado = "Peso normal";
         }else if(imc > 25 && imc < 29.9){
-            resultado = res + " - Sobrepeso (acima do peso desejado)";
+            resultado = "Sobrepeso (acima do peso desejado)";
         }else if(imc > 30 ){
-            resultado = res + " - Obesidade";
+            resultado = "Obesidade";
         }
         ImcHelper helper = new ImcHelper(this);
         ImcDialogFragment dialog = new ImcDialogFragment();
         dialog.setResultado(resultado);
+        dialog.setResultadoPrincipal(res);
         Date data = new Date();
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
 
