@@ -1,7 +1,5 @@
-package br.com.lampmobile.flagment;
+package br.com.lampmobile.fragment;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +11,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+
+import java.math.BigDecimal;
 
 import br.com.lampmobile.R;
 import br.com.lampmobile.utils.Utils;
@@ -63,5 +63,12 @@ public class MesesFragment extends Fragment implements View.OnClickListener{
             Toast.makeText(super.getContext(), "Favor informar Valor Financiado!", Toast.LENGTH_SHORT).show();
             return;
         }
+
+        BigDecimal vlrFinanciado = new BigDecimal(valorFinanciado.toString());
+        BigDecimal vlrParcela = new BigDecimal(valorParcelas.toString());
+        BigDecimal txJuros = new BigDecimal(taxaJuros.toString());
+
+        txJuros = txJuros.divide(new BigDecimal(100));
+
     }
 }

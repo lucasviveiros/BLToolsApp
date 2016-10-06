@@ -1,7 +1,5 @@
-package br.com.lampmobile.flagment;
+package br.com.lampmobile.fragment;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +11,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+
+import java.math.BigDecimal;
 
 import br.com.lampmobile.R;
 import br.com.lampmobile.utils.Utils;
@@ -60,5 +60,24 @@ public class ValorFinanciamentoFragment extends Fragment implements View.OnClick
             Toast.makeText(super.getContext(), "Favor informar Valor das Parcelas!", Toast.LENGTH_SHORT).show();
             return;
         }
+
+        //Valor Financiado= 1-(1+ Taxa de Juros Mensal) elevado a (menos) - Nº de Meses (divide) por Taxa de Juros Mensal (multiplica) Valor da Prestação
+
+        Integer nmMeses = new Integer(numeroMeses.toString());
+        BigDecimal vlrParcela = new BigDecimal(valorParcela.toString());
+        BigDecimal txJuros = new BigDecimal(taxaJuros.toString());
+
+
+        txJuros = txJuros.divide(new BigDecimal(100));
+
+
+
+//        Math.pow()
+
+
+
+//        BigDecimal q0 = (1 - (txJuros.add(BigDecimal.valueOf(1))) - nmMeses) / txJuros * vlrParcela;
+
+//        q0= 1-(1+j) -n / j *p
     }
 }

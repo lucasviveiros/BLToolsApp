@@ -5,10 +5,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import br.com.lampmobile.flagment.MesesFragment;
-import br.com.lampmobile.flagment.TaxaJurosFragment;
-import br.com.lampmobile.flagment.ValorFinanciamentoFragment;
-import br.com.lampmobile.flagment.ValorPrestacaoFlagment;
+import br.com.lampmobile.fragment.MesesFragment;
+import br.com.lampmobile.fragment.TaxaJurosFragment;
+import br.com.lampmobile.fragment.ValorFinanciamentoFragment;
+import br.com.lampmobile.fragment.ValorPrestacaoFragment;
 
 /**
  * Created by lucas.viveiros on 29/09/2016.
@@ -26,7 +26,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                ValorPrestacaoFlagment prestacao = new ValorPrestacaoFlagment();
+                ValorPrestacaoFragment prestacao = new ValorPrestacaoFragment();
                 return prestacao;
             case 1:
                 ValorFinanciamentoFragment financiamento = new ValorFinanciamentoFragment();

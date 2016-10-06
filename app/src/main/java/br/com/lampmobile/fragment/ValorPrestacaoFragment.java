@@ -1,7 +1,8 @@
-package br.com.lampmobile.flagment;
+package br.com.lampmobile.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +13,14 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import br.com.lampmobile.R;
+import br.com.lampmobile.dialog.TaxaJurosDialogFragment;
 import br.com.lampmobile.utils.Utils;
 
-public class ValorPrestacaoFlagment extends Fragment implements View.OnClickListener{
+public class ValorPrestacaoFragment extends Fragment implements View.OnClickListener{
 
     EditText numeroMeses;
     EditText taxaJuros;
@@ -59,5 +64,29 @@ public class ValorPrestacaoFlagment extends Fragment implements View.OnClickList
             Toast.makeText(super.getContext(), "Favor informar Valor Financiado!", Toast.LENGTH_SHORT).show();
             return;
         }
+
+        Integer nmMeses = new Integer(numeroMeses.getText().toString());
+        BigDecimal vlrFinanciado = new BigDecimal(valorFinanciado.getText().toString());
+        BigDecimal txJuros = new BigDecimal(taxaJuros.getText().toString());
+
+        txJuros = txJuros.divide(new BigDecimal(100));
+        BigDecimal valor1 = vlrFinanciado.multiply(txJuros);
+        Double valor2 = Math.pow(1+txJuros.doubleValue(), nmMeses);
+
+        Double valor3 = Math.pow(1+txJuros.doubleValue(), nmMeses);
+        Double valor4 = valor3 - 1;
+
+        BigDecimal total1 = valor1.multiply(new BigDecimal(valor2));
+        BigDecimal total2 = new BigDecimal(valor4);
+
+        BigDecimal resultado = total1.divide(total2, 2, RoundingMode.HALF_UP);
+
+        Log.i("RESULTADO : ", resultado.toString());
+
+        TaxaJurosDialogFragment dialog = new TaxaJurosDialogFragment();
+        dialog.setResultado("R$ " + resultado.toString());
+        dialog.setTitulo("Valor da prestação");
+
+        dialog.show(getFragmentManager(), "txJurosDialog");
     }
 }

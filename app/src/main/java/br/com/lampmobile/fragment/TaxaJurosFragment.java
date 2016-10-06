@@ -1,4 +1,4 @@
-package br.com.lampmobile.flagment;
+package br.com.lampmobile.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
