@@ -22,6 +22,8 @@ public class ConsumoDialogFragment extends DialogFragment {
 
     private String resultado;
 
+    private String resultadoPrincipal;
+
     private Historico historico;
 
     public void setHistorico(Historico historico) {
@@ -32,7 +34,12 @@ public class ConsumoDialogFragment extends DialogFragment {
         this.resultado = resultado;
     }
 
+    public void setResultadoPrincipal(String resultadoPrincipal) {
+        this.resultadoPrincipal = resultadoPrincipal;
+    }
+
     TextView res;
+    TextView resPrincipal;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -42,9 +49,11 @@ public class ConsumoDialogFragment extends DialogFragment {
         View viewDialog = inflater.inflate(R.layout.dialog_consumo, null);
 
         res = (TextView) viewDialog.findViewById(R.id.consumoDialogResultado);
+        resPrincipal = (TextView) viewDialog.findViewById(R.id.consumoDialogResultadoPrincipal);
+        resPrincipal.setText(resultadoPrincipal);
         res.setText(resultado.toString());
 
-        //builder.setTitle(R.string.label_imc);
+        builder.setTitle(R.string.label_consumo);
 
         builder.setView(viewDialog)
                 .setPositiveButton(R.string.salvar, new DialogInterface.OnClickListener() {

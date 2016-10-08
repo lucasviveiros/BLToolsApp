@@ -22,6 +22,8 @@ public class CombustivelDialogFragment extends DialogFragment {
 
     private String resultado;
 
+    private String resultadoPrincipal;
+
     private Historico historico;
 
     public void setHistorico(Historico historico) {
@@ -32,7 +34,12 @@ public class CombustivelDialogFragment extends DialogFragment {
         this.resultado = resultado;
     }
 
+    public void setResultadoPrincipal(String resultadoPrincipal) {
+        this.resultadoPrincipal = resultadoPrincipal;
+    }
+
     TextView res;
+    TextView resPrincipal;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -44,6 +51,10 @@ public class CombustivelDialogFragment extends DialogFragment {
         res = (TextView) viewDialog.findViewById(R.id.combustivelDialogResultado);
         res.setText(resultado.toString());
 
+        resPrincipal = (TextView) viewDialog.findViewById(R.id.combustivelDialogResultadoPrincipal);
+        resPrincipal.setText(resultadoPrincipal.toString());
+
+        builder.setTitle("Resultado");
 
         builder.setView(viewDialog)
                 .setPositiveButton(R.string.salvar, new DialogInterface.OnClickListener() {

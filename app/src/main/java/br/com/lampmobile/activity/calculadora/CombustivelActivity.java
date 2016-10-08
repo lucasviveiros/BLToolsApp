@@ -75,17 +75,21 @@ public class CombustivelActivity extends CalculadoraActivity {
 
         total = etanolConverter / gasolinaConverter;
 
+        String res = "";
         if(total > 0.7)
         {
-            resultado = "ABASTEÇA COM GASOLINA";
+            resultado = "Abasteça com gasolina";
+            res = "GASOLINA";
         }else
         {
-            resultado = "ABASTEÇA COM ÁLCOOL";
+            resultado = "Abasteça com álcool";
+            res = "ÁLCOOL";
         }
 
         CombustivelHelper helper = new CombustivelHelper(this);
         CombustivelDialogFragment dialog = new CombustivelDialogFragment();
         dialog.setResultado(resultado);
+        dialog.setResultadoPrincipal(res);
         Date data = new Date();
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
 

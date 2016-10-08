@@ -81,7 +81,8 @@ public class ConsumoActivity extends CalculadoraActivity {
 
         ConsumoHelper helper = new ConsumoHelper(this);
         ConsumoDialogFragment dialog = new ConsumoDialogFragment();
-        dialog.setResultado(resultado);
+        dialog.setResultado("Consumo aproximadamente");
+        dialog.setResultadoPrincipal(res + " km/l");
         Date data = new Date();
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -142,7 +143,7 @@ public class ConsumoActivity extends CalculadoraActivity {
         Intent shareIntent = new Intent();
 
         Bitmap bm = BitmapFactory.decodeResource(view.getResources(), R.drawable.icone_calculadora);
-        shareIntent.putExtra(Intent.EXTRA_TEXT ,"Consumo é de " + resultado.toString() + "\n\nLink : " + "http://goo.gl/mR2d" );
+        shareIntent.putExtra(Intent.EXTRA_TEXT , resultado.toString() + "\n\nLink : " + "http://goo.gl/mR2d" );
         String url= MediaStore.Images.Media.insertImage(getContentResolver(), bm, "iconeLamp", "description");
         shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(url));
         shareIntent.setType("image/*");

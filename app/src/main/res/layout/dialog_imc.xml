@@ -10,7 +10,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="8dp"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:paddingTop="8dp"
@@ -23,7 +22,6 @@
             android:paddingBottom="8dp"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
-            android:paddingTop="8dp"
             android:weightSum="1">
 
             <TextView
@@ -31,8 +29,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="25,6"
-                android:textColor="@android:color/black"
-                android:textSize="24sp"
+                android:textColor="@color/imc900"
+                android:textSize="32sp"
                 android:textStyle="bold"
                 android:gravity="center_horizontal"
                 android:layout_weight="1"/>
@@ -42,17 +40,40 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:background="@drawable/ic_share_black_24px"
-                android:onClick="compartilhar" />
+                android:onClick="compartilhar"
+                android:paddingTop="12dp"/>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/imcDialogResultado"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/label_imc"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            android:gravity="center_horizontal" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="8dp"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/imcDialogResultado"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/label_imc"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:textSize="16sp"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+
+
+        </LinearLayout>
 
     </LinearLayout>
 

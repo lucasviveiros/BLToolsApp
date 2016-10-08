@@ -60,7 +60,7 @@ public class ChurrascoHelper extends SQLiteOpenHelper {
      * @return Map<>
      */
     public Map<Tipo, List<Churrasco>> getItensAtivos(SQLiteDatabase db) {
-        String query = "SELECT * FROM " + TABLE_NAME + " WHERE ativo = ?";
+        String query = "SELECT * FROM " + TABLE_NAME;
         String[] args = {"1"};
         return executaQuery(db, query, args);
     }

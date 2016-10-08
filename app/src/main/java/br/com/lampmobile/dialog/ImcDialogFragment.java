@@ -56,7 +56,7 @@ public class ImcDialogFragment extends DialogFragment {
         resPrincipal.setText(resultadoPrincipal.toString());
         res.setText(resultado.toString());
 
-        builder.setTitle(R.string.label_imc);
+        builder.setTitle("Seu IMC");
 
         builder.setView(viewDialog)
                 .setPositiveButton(R.string.salvar, new DialogInterface.OnClickListener() {

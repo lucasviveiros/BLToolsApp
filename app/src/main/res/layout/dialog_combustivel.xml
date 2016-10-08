@@ -8,44 +8,69 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="8dp"
-        android:weightSum="1">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/label_combustivelXetanol"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_weight="1"/>
-
-
-        <Button
-            android:id="@+id/combustivelCompartilhar"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:background="@drawable/ic_share_black_24px"
-            android:onClick="compartilhar"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="8dp"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
-        android:paddingTop="8dp">
+        android:paddingTop="8dp"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/combustivelDialogResultado"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/combustivelDialogResultadoPrincipal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="COMBUSTIVEL"
+                android:textColor="@color/combustivel900"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/combustivelCompartilhar"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/ic_share_black_24px"
+                android:onClick="compartilhar"
+                android:paddingTop="12dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="8dp"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/combustivelDialogResultado"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/label_imc"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:textSize="16sp"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
