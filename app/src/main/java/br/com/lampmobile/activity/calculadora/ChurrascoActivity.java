@@ -2,6 +2,7 @@ package br.com.lampmobile.activity.calculadora;
 
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.SyncStatusObserver;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -100,8 +102,8 @@ public class ChurrascoActivity extends CalculadoraActivity {
         Intent shareIntent = new Intent();
 
         Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.icone_calculadora);
-        shareIntent.putExtra(Intent.EXTRA_TEXT ,"O resuldado do churrasco foi..." + "\n\nLink : " + "http://goo.gl/mR2d" );
-        String url= MediaStore.Images.Media.insertImage(this.getContentResolver(), bm, "iconeLamp", "description");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "O resuldado do churrasco foi..." + "\n\nLink : " + "http://goo.gl/mR2d");
+        String url = MediaStore.Images.Media.insertImage(this.getContentResolver(), bm, "iconeLamp", "description");
         shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(url));
         shareIntent.setType("image/*");
         shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -130,16 +132,23 @@ public class ChurrascoActivity extends CalculadoraActivity {
 
         int contador = 0;
         aux = mapChurrasco.get(ChurrascoHelper.Tipo.CARNE);
-        churrascoAux.setItem(ChurrascoHelper.Tipo.CARNE.toString());
-        itens.add(churrascoAux);
-        itens.addAll(aux);
-        for (Churrasco item : itens) {
-            if (contador == 0) {
+        for (Churrasco c : aux) {
+            if(c.getAtivo()){
                 contador++;
-            } else {
-                item.setResultado("10 kg");
             }
         }
+        if(contador > 0){
+            churrascoAux.setItem(ChurrascoHelper.Tipo.CARNE.toString());
+            List<Churrasco> listChurrasco =  calculaPeso(aux, Integer.valueOf(qntHomens.getText().toString()), Integer.valueOf(qntMulheres.getText().toString()), Integer.valueOf(qntCriancas.getText().toString()));
+            itens.add(churrascoAux);
+            for (Churrasco c : listChurrasco) {
+                if(c.getAtivo()){
+                    itens.add(c);
+                }
+            }
+
+        }
+
         mapChurrasco.put(ChurrascoHelper.Tipo.CARNE, itens);
 
         contador = 0;
@@ -265,6 +274,121 @@ public class ChurrascoActivity extends CalculadoraActivity {
         qntHomens.setText("");
         qntMulheres.setText("");
         qntCriancas.setText("");
+
+    }
+
+    public List<Churrasco> calculaPeso(List<Churrasco> listChurrasco, int qntHomem, int qntMulher, int qntCrianca) {
+
+        /*
+        * Gramas de carne dividido por peso 10
+        *
+        * Homem: 400g de carne por pessoa
+        * Mulher: 300g carne por pessoa
+        * Crianças: 250g carne por pessoa
+        */
+        Double gramasCarneHomem = 40.0;
+        Double gramasCarneMulher = 30.0;
+        Double gramasCarneCrianca = 25.0;
+
+        Double pesoCarneBovina = 3.0;
+        Double pesoCarneSuina = 2.0;
+        Double pesoCoracao = 1.0;
+        Double pesoFrango = 2.0;
+        Double pesoLinguica = 2.0;
+
+
+        int quantidadeCarneSelecionada = 5;
+        Double quantidadePeso = 0.0;
+        Double pesoDividido = 0.0;
+
+        for (Churrasco churrasco : listChurrasco) {
+
+            if ("Carne Bovina".equals(churrasco.getItem()) && churrasco.getAtivo() == false) {
+                quantidadeCarneSelecionada -= 1;
+                quantidadePeso += 3.0;
+                pesoCarneBovina = 0.0;
+            } else if ("Carne Suína".equals(churrasco.getItem()) && churrasco.getAtivo() == false) {
+                quantidadeCarneSelecionada -= 1;
+                quantidadePeso += 2.0;
+                pesoCarneSuina = 0.0;
+            } else if ("Coração".equals(churrasco.getItem()) && churrasco.getAtivo() == false) {
+                quantidadeCarneSelecionada -= 1;
+                quantidadePeso += 1.0;
+                pesoCoracao = 0.0;
+            } else if ("Frango".equals(churrasco.getItem()) && churrasco.getAtivo() == false) {
+                quantidadeCarneSelecionada -= 1;
+                quantidadePeso += 2.0;
+                pesoFrango = 0.0;
+            } else if ("Linguiça".equals(churrasco.getItem()) && churrasco.getAtivo() == false) {
+                quantidadeCarneSelecionada -= 1;
+                quantidadePeso += 2.0;
+                pesoLinguica = 0.0;
+            }
+        }
+
+        if (quantidadeCarneSelecionada < 5) {
+
+            pesoDividido = quantidadePeso / quantidadeCarneSelecionada;
+
+            for (Churrasco churrasco : listChurrasco) {
+                if ("Carne Bovina".equals(churrasco.getItem()) && churrasco.getAtivo()) {
+                    pesoCarneBovina += pesoDividido;
+                } else if ("Carne Suína".equals(churrasco.getItem()) && churrasco.getAtivo()) {
+                    pesoCarneSuina += pesoDividido;
+                } else if ("Coração".equals(churrasco.getItem()) && churrasco.getAtivo()) {
+                    pesoCoracao += pesoDividido;
+                } else if ("Frango".equals(churrasco.getItem()) && churrasco.getAtivo()) {
+                    pesoFrango += pesoDividido;
+                } else if ("Linguiça".equals(churrasco.getItem()) && churrasco.getAtivo()) {
+                    pesoLinguica += pesoDividido;
+                }
+            }
+        }
+
+        // HOMEM
+        Double gramasHomemCarneBovina = gramasCarneHomem * pesoCarneBovina;
+        Double gramasHomemCarneSuina = gramasCarneHomem * pesoCarneSuina;
+        Double gramasHomemCoracao = gramasCarneHomem * pesoCoracao;
+        Double gramasHomemFrango = gramasCarneHomem * pesoFrango;
+        Double gramasHomemLinguica = gramasCarneHomem * pesoLinguica;
+
+        // MULHER
+        Double gramasMulherCarneBovina = gramasCarneMulher * pesoCarneBovina;
+        Double gramasMulherCarneSuina = gramasCarneMulher *  pesoCarneSuina;
+        Double gramasMulherCoracao = gramasCarneMulher *  pesoCoracao;
+        Double gramasMulherFrango = gramasCarneMulher * pesoFrango;
+        Double gramasMulherLinguica = gramasCarneMulher * pesoLinguica;
+
+        // CRIANÇA
+        Double gramasCriancaCarneBovina = gramasCarneCrianca * pesoCarneBovina;
+        Double gramasCriancaCarneSuina = gramasCarneCrianca * pesoCarneSuina;
+        Double gramasCriancaCoracao = gramasCarneCrianca * pesoCoracao;
+        Double gramasCriancaFrango = gramasCarneCrianca * pesoFrango;
+        Double gramasCriancaLinguica = gramasCarneCrianca * pesoLinguica;
+
+
+        Double quantidadeCarneBovina = (qntHomem * gramasHomemCarneBovina + qntMulher * gramasMulherCarneBovina + qntCrianca * gramasCriancaCarneBovina);
+        Double quantidadeCarneSuina = (qntHomem * gramasHomemCarneSuina + qntMulher * gramasMulherCarneSuina + qntCrianca * gramasCriancaCarneSuina);
+        Double quantidadeCoracao = (qntHomem * gramasHomemCoracao + qntMulher * gramasMulherCoracao + qntCrianca * gramasCriancaCoracao);
+        Double quantidadeFrango = (qntHomem * gramasHomemFrango + qntMulher * gramasMulherFrango + qntCrianca * gramasCriancaFrango);
+        Double quantidadeLinguica = (qntHomem * gramasHomemLinguica + qntMulher * gramasMulherLinguica + qntCrianca * gramasCriancaLinguica);
+
+        for (Churrasco churrasco : listChurrasco) {
+
+            if ("Carne Bovina".equals(churrasco.getItem()) ) {
+                churrasco.setResultado(quantidadeCarneBovina.toString());
+            } else if ("Carne Suína".equals(churrasco.getItem()) ) {
+                churrasco.setResultado(quantidadeCarneSuina.toString());
+            } else if ("Coração".equals(churrasco.getItem())) {
+                churrasco.setResultado(quantidadeCoracao.toString());
+            } else if ("Frango".equals(churrasco.getItem()) ) {
+                churrasco.setResultado(quantidadeFrango.toString());
+            } else if ("Linguiça".equals(churrasco.getItem()) ) {
+                churrasco.setResultado(quantidadeLinguica.toString());
+            }
+        }
+
+        return listChurrasco;
 
     }
 }

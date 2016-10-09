@@ -61,8 +61,7 @@ public class ChurrascoHelper extends SQLiteOpenHelper {
      */
     public Map<Tipo, List<Churrasco>> getItensAtivos(SQLiteDatabase db) {
         String query = "SELECT * FROM " + TABLE_NAME;
-        String[] args = {"1"};
-        return executaQuery(db, query, args);
+        return executaQuery(db, query, null);
     }
 
     /**
