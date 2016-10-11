@@ -2,6 +2,7 @@ package br.com.lampmobile.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +14,10 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import br.com.lampmobile.R;
+import br.com.lampmobile.dialog.TaxaJurosDialogFragment;
 import br.com.lampmobile.utils.Utils;
 
 public class ValorFinanciamentoFragment extends Fragment implements View.OnClickListener{
@@ -61,23 +64,31 @@ public class ValorFinanciamentoFragment extends Fragment implements View.OnClick
             return;
         }
 
-        //Valor Financiado= 1-(1+ Taxa de Juros Mensal) elevado a (menos) - Nº de Meses (divide) por Taxa de Juros Mensal (multiplica) Valor da Prestação
-
-        Integer nmMeses = new Integer(numeroMeses.toString());
-        BigDecimal vlrParcela = new BigDecimal(valorParcela.toString());
-        BigDecimal txJuros = new BigDecimal(taxaJuros.toString());
-
-
+        Integer nmMeses = new Integer(numeroMeses.getText().toString());
+        BigDecimal vlrParcela = new BigDecimal(valorParcela.getText().toString());
+        BigDecimal txJuros = new BigDecimal(taxaJuros.getText().toString());
         txJuros = txJuros.divide(new BigDecimal(100));
 
+        // vlrParcela * (1 + txJuros)n -1
+        // ------------------------------
+        // txJuros * (1 + txJuros)n
+
+        Double valor1 = Math.pow(1+txJuros.doubleValue(), nmMeses);
+        Double valor2 = valor1 - 1;
+        BigDecimal total1 = vlrParcela.multiply(new BigDecimal(valor2));
 
 
-//        Math.pow()
+        Double valor4 = Math.pow(1+txJuros.doubleValue(), nmMeses);
+        BigDecimal total2 = txJuros.multiply(new BigDecimal(valor4));
 
+        BigDecimal resultado = total1.divide(total2, 2, RoundingMode.HALF_UP);
 
+        Log.i("RESULTADO : ", resultado.toString());
 
-//        BigDecimal q0 = (1 - (txJuros.add(BigDecimal.valueOf(1))) - nmMeses) / txJuros * vlrParcela;
+        TaxaJurosDialogFragment dialog = new TaxaJurosDialogFragment();
+        dialog.setResultado("R$ " + resultado.toString());
+        dialog.setTitulo("Valor do financiamento");
 
-//        q0= 1-(1+j) -n / j *p
+        dialog.show(getFragmentManager(), "txJurosDialog");
     }
 }

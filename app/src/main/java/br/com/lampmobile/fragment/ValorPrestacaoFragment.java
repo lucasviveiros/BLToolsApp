@@ -68,8 +68,12 @@ public class ValorPrestacaoFragment extends Fragment implements View.OnClickList
         Integer nmMeses = new Integer(numeroMeses.getText().toString());
         BigDecimal vlrFinanciado = new BigDecimal(valorFinanciado.getText().toString());
         BigDecimal txJuros = new BigDecimal(taxaJuros.getText().toString());
-
         txJuros = txJuros.divide(new BigDecimal(100));
+
+        // vlrFinanciado * txJuros * (1 + i)n
+        // ------------------------------
+        // (1 + txJuros)n -1
+
         BigDecimal valor1 = vlrFinanciado.multiply(txJuros);
         Double valor2 = Math.pow(1+txJuros.doubleValue(), nmMeses);
 
